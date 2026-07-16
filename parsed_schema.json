@@ -1,0 +1,5607 @@
+{
+  "SUMMARY": [
+    {
+      "Table": "PM_VAULT",
+      "Use of Table": "Stores vault information"
+    },
+    {
+      "Table": "PM_LOGIN",
+      "Use of Table": "Stores login data",
+      "Main Relationship": "M:1 with vault and 1:M with common fields"
+    },
+    {
+      "Table": "PM_SECURENOTE",
+      "Use of Table": "Stores secureNote data",
+      "Main Relationship": "M:1 with vault and 1:M with common fields"
+    },
+    {
+      "Table": "PM_CREDITCARD",
+      "Use of Table": "Stores creditCard data",
+      "Main Relationship": "M:1 with vault and 1:M with common fields"
+    },
+    {
+      "Table": "PM_IDENTITY",
+      "Use of Table": "Stores identity data",
+      "Main Relationship": "M:1 with vault and 1:M with common fields"
+    },
+    {
+      "Table": "PM_PASSWORD",
+      "Use of Table": "Stores password data",
+      "Main Relationship": "M:1 with vault and 1:M with common fields"
+    },
+    {
+      "Table": "PM_DOCUMENT",
+      "Use of Table": "Stores document data",
+      "Main Relationship": "M:1 with vault and 1:M with common fields"
+    },
+    {
+      "Table": "PM_API_CREDENTIALS",
+      "Use of Table": "Stores api_credentials data",
+      "Main Relationship": "M:1 with vault and 1:M with common fields"
+    },
+    {
+      "Table": "PM_BANK_ACCOUNT",
+      "Use of Table": "Stores stores bank account data",
+      "Main Relationship": "M:1 with vault and 1:M with common fields"
+    },
+    {
+      "Table": "PM_CRYPTOWALLET",
+      "Use of Table": "Stores cryptoWallet data",
+      "Main Relationship": "M:1 with vault and 1:M with common fields"
+    },
+    {
+      "Table": "PM_DATABASE",
+      "Use of Table": "Stores database data",
+      "Main Relationship": "M:1 with vault and 1:M with common fields"
+    },
+    {
+      "Table": "PM_DRIVING_LICENSE",
+      "Use of Table": "Stores drivingLicense data",
+      "Main Relationship": "M:1 with vault and 1:M with common fields"
+    },
+    {
+      "Table": "PM_EMAIL",
+      "Use of Table": "Stores email data",
+      "Main Relationship": "M:1 with vault and 1:M with common fields"
+    },
+    {
+      "Table": "PM_MEDICAL_RECORD",
+      "Use of Table": "Stores MedicalRecord data",
+      "Main Relationship": "M:1 with vault and 1:M with common fields"
+    },
+    {
+      "Table": "PM_MEMBERSHIP",
+      "Use of Table": "Stores Membership data",
+      "Main Relationship": "M:1 with vault and 1:M with common fields"
+    },
+    {
+      "Table": "PM_OUTDOOR_LICENSE",
+      "Use of Table": "Stores outdoorLicense data",
+      "Main Relationship": "M:1 with vault and 1:M with common fields"
+    },
+    {
+      "Table": "PM_PASSPORT",
+      "Use of Table": "Stores passport data",
+      "Main Relationship": "M:1 with vault and 1:M with common fields"
+    },
+    {
+      "Table": "PM_REWARDS",
+      "Use of Table": "Stores rewards data",
+      "Main Relationship": "M:1 with vault and 1:M with common fields"
+    },
+    {
+      "Table": "PM_SSH_KEYS",
+      "Use of Table": "Stores sshKeys data",
+      "Main Relationship": "M:1 with vault and 1:M with common fields"
+    },
+    {
+      "Table": "PM_SERVER",
+      "Use of Table": "Stores server data",
+      "Main Relationship": "M:1 with vault and 1:M with common fields"
+    },
+    {
+      "Table": "PM_SOCIAL_SECURITY_NUMBER",
+      "Use of Table": "Stores socialSecurityNumber data",
+      "Main Relationship": "M:1 with vault and 1:M with common fields"
+    },
+    {
+      "Table": "PM_SOFTWARE_LICENSE",
+      "Use of Table": "Stores softwareLicense data",
+      "Main Relationship": "M:1 with vault and 1:M with common fields"
+    },
+    {
+      "Table": "PM_WIRELESS_ROUTER",
+      "Use of Table": "Stores wirelessRouter data",
+      "Main Relationship": "M:1 with vault and 1:M with common fields"
+    },
+    {
+      "Table": "PM_COMMON_FIELD_INFO",
+      "Use of Table": "Stores common fields"
+    }
+  ],
+  "PM_USERS": [
+    {
+      "Table Details": "Column Name",
+      "__EMPTY": "DataType",
+      "__EMPTY_1": "Relationship",
+      "__EMPTY_2": "Foreign Key"
+    },
+    {
+      "Table Details": "ID",
+      "__EMPTY": "UUID"
+    },
+    {
+      "Table Details": "FULLNAME",
+      "__EMPTY": "VARCHAR"
+    },
+    {
+      "Table Details": "EMAIL",
+      "__EMPTY": "VARCHAR"
+    },
+    {
+      "Table Details": "EMAIL_VERIFIED",
+      "__EMPTY": "BOOLEAN"
+    },
+    {
+      "Table Details": "PHONE",
+      "__EMPTY": "VARCHAR"
+    },
+    {
+      "Table Details": "PASSWORD_HASH",
+      "__EMPTY": "TEXT"
+    },
+    {
+      "Table Details": "MASTER_PASSWORD_HINT",
+      "__EMPTY": "TEXT"
+    },
+    {
+      "Table Details": "MASTER_KEY_SALT",
+      "__EMPTY": "TEXT"
+    },
+    {
+      "Table Details": "KEY_DERIVATION_ALGORITHM",
+      "__EMPTY": "VARCHAR"
+    },
+    {
+      "Table Details": "PUBLIC_KEY",
+      "__EMPTY": "TEXT"
+    },
+    {
+      "Table Details": "ENCRYPTED_PRIVATE_KEY",
+      "__EMPTY": "TEXT"
+    },
+    {
+      "Table Details": "MFA_ENABLED",
+      "__EMPTY": "BOOLEAN"
+    },
+    {
+      "Table Details": "MFA_SECRET_ENCRYPTED",
+      "__EMPTY": "TEXT"
+    },
+    {
+      "Table Details": "RECOVERY_CODES_HASH",
+      "__EMPTY": "JSONB"
+    },
+    {
+      "Table Details": "DEFAULT_VAULT_ID",
+      "__EMPTY": "UUID",
+      "__EMPTY_1": "Foreign key",
+      "__EMPTY_2": "references vaults.id"
+    },
+    {
+      "Table Details": "FAILED_LOGIN_ATTEMPTS",
+      "__EMPTY": "INT"
+    },
+    {
+      "Table Details": "LOCKED_UNTIL",
+      "__EMPTY": "TIMESTAMP"
+    },
+    {
+      "Table Details": "LAST_LOGIN_AT",
+      "__EMPTY": "TIMESTAMP"
+    },
+    {
+      "Table Details": "LAST_LOGIN_IP",
+      "__EMPTY": "VARCHAR"
+    },
+    {
+      "Table Details": "CREATED_AT",
+      "__EMPTY": "TIMESTAMP"
+    },
+    {
+      "Table Details": "UPDATED_AT",
+      "__EMPTY": "TIMESTAMP"
+    },
+    {
+      "Table Details": "IS_ACTIVE",
+      "__EMPTY": "BOOLEAN"
+    }
+  ],
+  "PM_ORGANISATIONS": [
+    {
+      "Table Details": "Column Name",
+      "__EMPTY": "DataType",
+      "__EMPTY_1": "Relationship",
+      "__EMPTY_2": "Foreign Key"
+    },
+    {
+      "Table Details": "ID",
+      "__EMPTY": "UUID"
+    },
+    {
+      "Table Details": "NAME",
+      "__EMPTY": "VARCHAR"
+    },
+    {
+      "Table Details": "OWNER_ID",
+      "__EMPTY": "UUID",
+      "__EMPTY_1": "Foreign key",
+      "__EMPTY_2": "users.id"
+    },
+    {
+      "Table Details": "PLAN_TYPE",
+      "__EMPTY": "VARCHAR"
+    },
+    {
+      "Table Details": "CREATED_AT",
+      "__EMPTY": "TIMESTAMP"
+    },
+    {
+      "Table Details": "UPDATED_AT",
+      "__EMPTY": "TIMESTAMP"
+    },
+    {
+      "Table Details": "IS_ACTIVE",
+      "__EMPTY": "BOOLEAN"
+    }
+  ],
+  "PM_ROLES": [
+    {
+      "Table Details": "Column Name",
+      "__EMPTY": "DataType",
+      "__EMPTY_1": "Relationship",
+      "__EMPTY_2": "Foreign Key"
+    },
+    {
+      "Table Details": "ID",
+      "__EMPTY": "UUID"
+    },
+    {
+      "Table Details": "ORG_ID",
+      "__EMPTY": "UUID",
+      "__EMPTY_1": "Foreign key"
+    },
+    {
+      "Table Details": "NAME",
+      "__EMPTY": "VARCHAR"
+    },
+    {
+      "Table Details": "IS_SYSTEM_ROLE",
+      "__EMPTY": "BOOLEAN"
+    },
+    {
+      "Table Details": "CREATED_AT",
+      "__EMPTY": "TIMESTAMP"
+    },
+    {
+      "Table Details": "UPDATED_AT",
+      "__EMPTY": "TIMESTAMP"
+    }
+  ],
+  "PM_PERMISSIONS": [
+    {
+      "Table Details": "Column Name",
+      "__EMPTY": "DataType",
+      "__EMPTY_1": "Relationship",
+      "__EMPTY_2": "Foreign Key"
+    },
+    {
+      "Table Details": "ID",
+      "__EMPTY": "UUID"
+    },
+    {
+      "Table Details": "NAME",
+      "__EMPTY": "VARCHAR"
+    },
+    {
+      "Table Details": "MODULE",
+      "__EMPTY": "VARCHAR"
+    },
+    {
+      "Table Details": "DESCRIPTION",
+      "__EMPTY": "TEXT"
+    },
+    {
+      "Table Details": "CREATED_AT",
+      "__EMPTY": "TIMESTAMP"
+    }
+  ],
+  "PM_ROLE_PERMISSIONS": [
+    {
+      "Table Details": "Column Name",
+      "__EMPTY": "DataType",
+      "__EMPTY_1": "Relationship",
+      "__EMPTY_2": "Foreign Key"
+    },
+    {
+      "Table Details": "ID",
+      "__EMPTY": "UUID"
+    },
+    {
+      "Table Details": "ROLE_ID",
+      "__EMPTY": "UUID",
+      "__EMPTY_1": "Foreign key",
+      "__EMPTY_2": "roles.id"
+    },
+    {
+      "Table Details": "PERMISSION_ID",
+      "__EMPTY": "UUID",
+      "__EMPTY_1": "Foreign key",
+      "__EMPTY_2": "permissions.id"
+    },
+    {
+      "Table Details": "CREATED_AT",
+      "__EMPTY": "TIMESTAMP"
+    }
+  ],
+  "PM_VAULT": [
+    {
+      "__EMPTY": "New Vault(create vault)",
+      "FieldName": "Vault name",
+      "Type": "TextArea"
+    },
+    {
+      "FieldName": "Description",
+      "Type": "TextArea"
+    },
+    {
+      "__EMPTY": "After creation",
+      "FieldName": "View Vault"
+    },
+    {
+      "FieldName": "Import Data"
+    },
+    {
+      "FieldName": "More action (3 dot)",
+      "Type": "3 dot-> delete vault"
+    },
+    {
+      "__EMPTY": "New item(button)",
+      "FieldName": "search bar"
+    },
+    {
+      "__EMPTY": "Table Details"
+    },
+    {
+      "__EMPTY": "Column Name",
+      "FieldName": "DataType",
+      "Type": "Relationship",
+      "__EMPTY_1": "Foreign Key"
+    },
+    {
+      "__EMPTY": "ID",
+      "FieldName": "UUID",
+      "Type": "Primary Key",
+      "__EMPTY_1": " N"
+    },
+    {
+      "__EMPTY": "NAME",
+      "FieldName": "VARCHAR",
+      "__EMPTY_1": " N"
+    },
+    {
+      "__EMPTY": "DESCRIPTION",
+      "FieldName": "VARCHAR",
+      "__EMPTY_1": " N"
+    },
+    {
+      "__EMPTY": "CREATED_BY",
+      "FieldName": "VARCHAR"
+    },
+    {
+      "__EMPTY": "CREATED_ON",
+      "FieldName": "TIMESTAMP"
+    },
+    {
+      "__EMPTY": "UPDATED_BY",
+      "FieldName": "VARCHAR"
+    },
+    {
+      "__EMPTY": "UPDATED_ON",
+      "FieldName": "TIMESTAMP"
+    },
+    {
+      "__EMPTY": "IS_ACTIVE",
+      "FieldName": "BOOLEAN"
+    }
+  ],
+  "PM_LOGIN": [
+    {
+      "FieldName": "username",
+      "Type": "text"
+    },
+    {
+      "FieldName": "Password",
+      "Type": "Password"
+    },
+    {
+      "FieldName": "website & url",
+      "Type": "TextArea",
+      "OptionName": "icon(autofill behaviour)",
+      "OptionType": "single selection",
+      "__EMPTY": "Fill anywhere on website (default)"
+    },
+    {
+      "OptionName": "icon(delete website)",
+      "__EMPTY": "only fill on this exact host"
+    },
+    {
+      "__EMPTY": "never fill on this website"
+    },
+    {
+      "FieldName": "Add another webite",
+      "Type": "TextArea",
+      "OptionName": "icon(autofill behaviour)",
+      "OptionType": "single selection",
+      "__EMPTY": "Fill anywhere on website (default)"
+    },
+    {
+      "OptionName": "icon(delete website)",
+      "__EMPTY": "only fill on this exact host"
+    },
+    {
+      "__EMPTY": "never fill on this website"
+    },
+    {
+      "__EMPTY_1": "select list"
+    },
+    {
+      "FieldName": "Add more",
+      "Type": "Select list",
+      "OptionName": "Security Questions",
+      "OptionType": "Text Area with select list",
+      "__EMPTY": "select question",
+      "__EMPTY_1": "text"
+    },
+    {
+      "__EMPTY": "Answer"
+    },
+    {
+      "OptionName": "Text",
+      "OptionType": "TextArea"
+    },
+    {
+      "OptionName": "URL",
+      "OptionType": "TextArea with headline url"
+    },
+    {
+      "OptionName": "Email",
+      "OptionType": "TextArea with headline email"
+    },
+    {
+      "OptionName": "Address",
+      "OptionType": "TextArea with headline address"
+    },
+    {
+      "OptionName": "Date",
+      "OptionType": "calendar default current date"
+    },
+    {
+      "OptionName": "One-Time Password",
+      "OptionType": "TextArea with headline otp"
+    },
+    {
+      "OptionName": "Password",
+      "OptionType": "TextArea with headline password"
+    },
+    {
+      "OptionName": "Phone",
+      "OptionType": "TextArea with headline phone"
+    },
+    {
+      "OptionName": "Sign in with",
+      "OptionType": "select list of accounts",
+      "__EMPTY": "google, facebook, microsoft, github"
+    },
+    {
+      "OptionName": "Section",
+      "OptionType": "Text field"
+    },
+    {
+      "OptionName": "Attach a file",
+      "OptionType": "Allows to upload a file"
+    },
+    {
+      "FieldName": "notes",
+      "Type": "textArea"
+    },
+    {
+      "FieldName": "location",
+      "Type": "TextArea"
+    },
+    {
+      "FieldName": "tags (add tag)",
+      "Type": "select list"
+    },
+    {
+      "FieldName": "save",
+      "Type": "button"
+    },
+    {
+      "FieldName": "Table Details"
+    },
+    {
+      "FieldName": "Column Name",
+      "Type": "DataType",
+      "OptionName": "Relationship",
+      "OptionType": "Foreign Key"
+    },
+    {
+      "FieldName": "ID",
+      "Type": "UUID",
+      "OptionName": "Primary Key",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "VAULT_ID",
+      "Type": "UUID",
+      "OptionName": "M:1",
+      "OptionType": "VAULT.ID"
+    },
+    {
+      "FieldName": "USERNAME",
+      "Type": "VARCHAR",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "PASSWORD",
+      "Type": "VARCHAR",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "COMMON_FIELDS",
+      "Type": "SELECTLIST",
+      "OptionName": "1:M",
+      "OptionType": "COMMONFIELDS"
+    },
+    {
+      "FieldName": "IS_ACTIVE",
+      "Type": "BOOLEAN"
+    }
+  ],
+  "PM_SECURENOTE": [
+    {
+      "FieldName": "TextArea(notes)"
+    },
+    {
+      "FieldName": "Add more",
+      "Type": "selectlist",
+      "OptionName": "Text",
+      "OptionType": "TextArea"
+    },
+    {
+      "OptionName": "URL",
+      "OptionType": "TextArea with headline url"
+    },
+    {
+      "OptionName": "Email",
+      "OptionType": "TextArea with headline email"
+    },
+    {
+      "OptionName": "Address",
+      "OptionType": "TextArea with headline address"
+    },
+    {
+      "OptionName": "Date",
+      "OptionType": "calendar default current date"
+    },
+    {
+      "OptionName": "One-Time Password",
+      "OptionType": "TextArea with headline otp"
+    },
+    {
+      "OptionName": "Password",
+      "OptionType": "TextArea with headline password"
+    },
+    {
+      "OptionName": "Phone",
+      "OptionType": "TextArea with headline phone"
+    },
+    {
+      "OptionName": "Sign in with",
+      "OptionType": "select list of accounts",
+      "__EMPTY": "google, facebook, microsoft, github"
+    },
+    {
+      "OptionName": "Section",
+      "OptionType": "Text field"
+    },
+    {
+      "OptionName": "Attach a file",
+      "OptionType": "Allows to upload a file"
+    },
+    {
+      "FieldName": "location",
+      "Type": "TextArea"
+    },
+    {
+      "FieldName": "tags (add tag)",
+      "Type": "select list"
+    },
+    {
+      "FieldName": "save",
+      "Type": "button"
+    },
+    {
+      "FieldName": "Table Details"
+    },
+    {
+      "FieldName": "Column Name",
+      "Type": "DataType",
+      "OptionName": "Relationship",
+      "OptionType": "Foreign Key"
+    },
+    {
+      "FieldName": "ID",
+      "Type": "UUID",
+      "OptionName": "Primary Key",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "VAULT_ID",
+      "Type": "UUID",
+      "OptionName": "M:1",
+      "OptionType": "VAULT.ID"
+    },
+    {
+      "FieldName": "NOTES",
+      "Type": "VARCHAR",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "COMMON_FIELDS",
+      "Type": "SELECTLIST",
+      "OptionName": "1:M",
+      "OptionType": "COMMONFIELDS"
+    },
+    {
+      "FieldName": "IS_ACTIVE",
+      "Type": "BOOLEAN"
+    }
+  ],
+  "PM_CREDITCARD": [
+    {
+      "FieldName": "CardHolder name",
+      "Type": "Text"
+    },
+    {
+      "FieldName": "Type",
+      "Type": "select List"
+    },
+    {
+      "FieldName": "Number",
+      "Type": "Text"
+    },
+    {
+      "FieldName": "Verification Number",
+      "Type": "Number"
+    },
+    {
+      "FieldName": "Expiry date",
+      "Type": "date"
+    },
+    {
+      "FieldName": "valid from",
+      "Type": "date"
+    },
+    {
+      "FieldName": "Add another field",
+      "Type": "selectlist",
+      "OptionName": "Text",
+      "OptionType": "TextArea"
+    },
+    {
+      "OptionName": "URL",
+      "OptionType": "TextArea with headline url"
+    },
+    {
+      "OptionName": "Email",
+      "OptionType": "TextArea with headline email"
+    },
+    {
+      "OptionName": "Address",
+      "OptionType": "TextArea with headline address"
+    },
+    {
+      "OptionName": "Date",
+      "OptionType": "calendar default current date"
+    },
+    {
+      "OptionName": "One-Time Password",
+      "OptionType": "TextArea with headline otp"
+    },
+    {
+      "OptionName": "Password",
+      "OptionType": "TextArea with headline password"
+    },
+    {
+      "OptionName": "Phone",
+      "OptionType": "TextArea with headline phone"
+    },
+    {
+      "OptionName": "Sign in with",
+      "OptionType": "select list of accounts",
+      "__EMPTY": "google, facebook, microsoft, github"
+    },
+    {
+      "OptionName": "Section",
+      "OptionType": "Text field"
+    },
+    {
+      "OptionName": "Attach a file",
+      "OptionType": "Allows to upload a file"
+    },
+    {
+      "FieldName": "Contact Information",
+      "Type": "Issuing  Bank ",
+      "OptionName": "Text"
+    },
+    {
+      "Type": "Phone",
+      "OptionName": "Text"
+    },
+    {
+      "Type": "Website",
+      "OptionName": "Text"
+    },
+    {
+      "FieldName": "Add another field",
+      "Type": "selectlist",
+      "OptionName": "Text",
+      "OptionType": "TextArea"
+    },
+    {
+      "OptionName": "URL",
+      "OptionType": "TextArea with headline url"
+    },
+    {
+      "OptionName": "Email",
+      "OptionType": "TextArea with headline email"
+    },
+    {
+      "OptionName": "Address",
+      "OptionType": "TextArea with headline address"
+    },
+    {
+      "OptionName": "Date",
+      "OptionType": "calendar default current date"
+    },
+    {
+      "OptionName": "One-Time Password",
+      "OptionType": "TextArea with headline otp"
+    },
+    {
+      "OptionName": "Password",
+      "OptionType": "TextArea with headline password"
+    },
+    {
+      "OptionName": "Phone",
+      "OptionType": "TextArea with headline phone"
+    },
+    {
+      "OptionName": "Sign in with",
+      "OptionType": "select list of accounts",
+      "__EMPTY": "google, facebook, microsoft, github"
+    },
+    {
+      "OptionName": "Section",
+      "OptionType": "Text field"
+    },
+    {
+      "OptionName": "Attach a file",
+      "OptionType": "Allows to upload a file"
+    },
+    {
+      "FieldName": "Add more",
+      "Type": "selectlist",
+      "OptionName": "Text",
+      "OptionType": "TextArea"
+    },
+    {
+      "OptionName": "URL",
+      "OptionType": "TextArea with headline url"
+    },
+    {
+      "OptionName": "Email",
+      "OptionType": "TextArea with headline email"
+    },
+    {
+      "OptionName": "Address",
+      "OptionType": "TextArea with headline address"
+    },
+    {
+      "OptionName": "Date",
+      "OptionType": "calendar default current date"
+    },
+    {
+      "OptionName": "One-Time Password",
+      "OptionType": "TextArea with headline otp"
+    },
+    {
+      "OptionName": "Password",
+      "OptionType": "TextArea with headline password"
+    },
+    {
+      "OptionName": "Phone",
+      "OptionType": "TextArea with headline phone"
+    },
+    {
+      "OptionName": "Sign in with",
+      "OptionType": "select list of accounts",
+      "__EMPTY": "google, facebook, microsoft, github"
+    },
+    {
+      "OptionName": "Section",
+      "OptionType": "Text field"
+    },
+    {
+      "OptionName": "Attach a file",
+      "OptionType": "Allows to upload a file"
+    },
+    {
+      "FieldName": "notes ",
+      "Type": "TextArea"
+    },
+    {
+      "FieldName": "location",
+      "Type": "TextArea"
+    },
+    {
+      "FieldName": "tags (add tag)",
+      "Type": "select list"
+    },
+    {
+      "FieldName": "save",
+      "Type": "button"
+    },
+    {
+      "FieldName": "Table Details"
+    },
+    {
+      "FieldName": "Column Name",
+      "Type": "DataType",
+      "OptionName": "Relationship",
+      "OptionType": "Foreign Key"
+    },
+    {
+      "FieldName": "ID",
+      "Type": "UUID",
+      "OptionName": "Primary Key",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "VAULT_ID",
+      "Type": "UUID",
+      "OptionName": "M:1",
+      "OptionType": "VAULT.ID"
+    },
+    {
+      "FieldName": "CARDHOLDER_NAME",
+      "Type": "VARCHAR",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "TYPE",
+      "Type": "SELECTLIST",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "NUMBER",
+      "Type": "VARCHAR",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "VERIFICATION_NUMBER",
+      "Type": "NUMBER",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "EXPIRY_DATE",
+      "Type": "DATE",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "VALID_FROM",
+      "Type": "DATE",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "ISSUING_BANK",
+      "Type": "VARCHAR",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "PHONE",
+      "Type": "NUMBER",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "WEBSITE",
+      "Type": "VARCHAR",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "COMMON_FIELDS",
+      "Type": "SELECTLIST",
+      "OptionName": "1:M",
+      "OptionType": "COMMON.FIELDS"
+    },
+    {
+      "FieldName": "IS_ACTIVE",
+      "Type": "BOOLEAN"
+    }
+  ],
+  "PM_IDENTITY": [
+    {
+      "FieldName": "Fist Name",
+      "Type": "Text"
+    },
+    {
+      "FieldName": "Initial",
+      "Type": "Text"
+    },
+    {
+      "FieldName": "Last Name",
+      "Type": "Text"
+    },
+    {
+      "FieldName": "Gender",
+      "Type": "Text"
+    },
+    {
+      "FieldName": "Birth Date",
+      "Type": "Date"
+    },
+    {
+      "FieldName": "Occupation",
+      "Type": "Text"
+    },
+    {
+      "FieldName": "Company ",
+      "Type": "Text"
+    },
+    {
+      "FieldName": "Department",
+      "Type": "Text"
+    },
+    {
+      "FieldName": "Job Title",
+      "Type": "Text"
+    },
+    {
+      "FieldName": "Add another field",
+      "Type": "selectlist",
+      "OptionName": "Text",
+      "OptionType": "TextArea"
+    },
+    {
+      "OptionName": "URL",
+      "OptionType": "TextArea with headline url"
+    },
+    {
+      "OptionName": "Email",
+      "OptionType": "TextArea with headline email"
+    },
+    {
+      "OptionName": "Address",
+      "OptionType": "TextArea with headline address"
+    },
+    {
+      "OptionName": "Date",
+      "OptionType": "calendar default current date"
+    },
+    {
+      "OptionName": "One-Time Password",
+      "OptionType": "TextArea with headline otp"
+    },
+    {
+      "OptionName": "Password",
+      "OptionType": "TextArea with headline password"
+    },
+    {
+      "OptionName": "Phone",
+      "OptionType": "TextArea with headline phone"
+    },
+    {
+      "OptionName": "Sign in with",
+      "OptionType": "select list of accounts",
+      "__EMPTY": "google, facebook, microsoft, github"
+    },
+    {
+      "OptionName": "Section",
+      "OptionType": "Text field"
+    },
+    {
+      "OptionName": "Attach a file",
+      "OptionType": "Allows to upload a file"
+    },
+    {
+      "FieldName": "Address",
+      "Type": "TextArea"
+    },
+    {
+      "FieldName": "Default phone",
+      "Type": " Text"
+    },
+    {
+      "FieldName": "Home",
+      "Type": " Text"
+    },
+    {
+      "FieldName": "Cell",
+      "Type": " Text"
+    },
+    {
+      "FieldName": "Business",
+      "Type": " Text"
+    },
+    {
+      "FieldName": "Add another field",
+      "Type": "selectlist",
+      "OptionName": "Text",
+      "OptionType": "TextArea"
+    },
+    {
+      "OptionName": "URL",
+      "OptionType": "TextArea with headline url"
+    },
+    {
+      "OptionName": "Email",
+      "OptionType": "TextArea with headline email"
+    },
+    {
+      "OptionName": "Address",
+      "OptionType": "TextArea with headline address"
+    },
+    {
+      "OptionName": "Date",
+      "OptionType": "calendar default current date"
+    },
+    {
+      "OptionName": "One-Time Password",
+      "OptionType": "TextArea with headline otp"
+    },
+    {
+      "OptionName": "Password",
+      "OptionType": "TextArea with headline password"
+    },
+    {
+      "OptionName": "Phone",
+      "OptionType": "TextArea with headline phone"
+    },
+    {
+      "OptionName": "Sign in with",
+      "OptionType": "select list of accounts",
+      "__EMPTY": "google, facebook, microsoft, github"
+    },
+    {
+      "OptionName": "Section",
+      "OptionType": "Text field"
+    },
+    {
+      "OptionName": "Attach a file",
+      "OptionType": "Allows to upload a file"
+    },
+    {
+      "FieldName": "Internet Details"
+    },
+    {
+      "FieldName": "username"
+    },
+    {
+      "FieldName": "reminder question"
+    },
+    {
+      "FieldName": "reminder answer"
+    },
+    {
+      "FieldName": "email"
+    },
+    {
+      "FieldName": "website"
+    },
+    {
+      "FieldName": "ICQ"
+    },
+    {
+      "FieldName": "skype"
+    },
+    {
+      "FieldName": "AOL/AIM"
+    },
+    {
+      "FieldName": "yahoo"
+    },
+    {
+      "FieldName": "MSN"
+    },
+    {
+      "FieldName": "forum signature"
+    },
+    {
+      "FieldName": "Add another field",
+      "Type": "selectlist",
+      "OptionName": "Text",
+      "OptionType": "TextArea"
+    },
+    {
+      "OptionName": "URL",
+      "OptionType": "TextArea with headline url"
+    },
+    {
+      "OptionName": "Email",
+      "OptionType": "TextArea with headline email"
+    },
+    {
+      "OptionName": "Address",
+      "OptionType": "TextArea with headline address"
+    },
+    {
+      "OptionName": "Date",
+      "OptionType": "calendar default current date"
+    },
+    {
+      "OptionName": "One-Time Password",
+      "OptionType": "TextArea with headline otp"
+    },
+    {
+      "OptionName": "Password",
+      "OptionType": "TextArea with headline password"
+    },
+    {
+      "OptionName": "Phone",
+      "OptionType": "TextArea with headline phone"
+    },
+    {
+      "OptionName": "Sign in with",
+      "OptionType": "select list of accounts",
+      "__EMPTY": "google, facebook, microsoft, github"
+    },
+    {
+      "OptionName": "Section",
+      "OptionType": "Text field"
+    },
+    {
+      "OptionName": "Attach a file",
+      "OptionType": "Allows to upload a file"
+    },
+    {
+      "FieldName": "Add more",
+      "Type": "selectlist",
+      "OptionName": "Text",
+      "OptionType": "TextArea"
+    },
+    {
+      "OptionName": "URL",
+      "OptionType": "TextArea with headline url"
+    },
+    {
+      "OptionName": "Email",
+      "OptionType": "TextArea with headline email"
+    },
+    {
+      "OptionName": "Address",
+      "OptionType": "TextArea with headline address"
+    },
+    {
+      "OptionName": "Date",
+      "OptionType": "calendar default current date"
+    },
+    {
+      "OptionName": "One-Time Password",
+      "OptionType": "TextArea with headline otp"
+    },
+    {
+      "OptionName": "Password",
+      "OptionType": "TextArea with headline password"
+    },
+    {
+      "OptionName": "Phone",
+      "OptionType": "TextArea with headline phone"
+    },
+    {
+      "OptionName": "Sign in with",
+      "OptionType": "select list of accounts",
+      "__EMPTY": "google, facebook, microsoft, github"
+    },
+    {
+      "OptionName": "Section",
+      "OptionType": "Text field"
+    },
+    {
+      "OptionName": "Attach a file",
+      "OptionType": "Allows to upload a file"
+    },
+    {
+      "FieldName": "notes ",
+      "Type": "TextArea"
+    },
+    {
+      "FieldName": "location",
+      "Type": "TextArea"
+    },
+    {
+      "FieldName": "tags (add tag)",
+      "Type": "select list"
+    },
+    {
+      "FieldName": "save",
+      "Type": "button"
+    },
+    {
+      "FieldName": "Table Details"
+    },
+    {
+      "FieldName": "Column Name",
+      "Type": "DataType",
+      "OptionName": "Relationship",
+      "OptionType": "Foreign Key"
+    },
+    {
+      "FieldName": "ID",
+      "Type": "UUID",
+      "OptionName": "Primary Key",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "VAULT_ID",
+      "Type": "UUID",
+      "OptionName": "M:1",
+      "OptionType": "VAULT.ID"
+    },
+    {
+      "FieldName": "FIRST_NAME",
+      "Type": "VARCHAR",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "INITIAL",
+      "Type": "VARCHAR",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "LAST_NAME",
+      "Type": "VARCHAR",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "GENDER",
+      "Type": "VARCHAR",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "BIRTH_DATE",
+      "Type": "DATE",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "OCCUPATION",
+      "Type": "VARCHAR",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "COMPANY",
+      "Type": "VARCHAR",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "DEPARTMENT",
+      "Type": "VARCHAR",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "JOB_TITLE",
+      "Type": "VARCHAR",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "DEFAULT_PHONE",
+      "Type": "NUMBER",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "HOME",
+      "Type": "NUMBER",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "CELL",
+      "Type": "NUMBER",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "BUSINESS_PHONE",
+      "Type": "NUMBER",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "USERNAME",
+      "Type": "VARCHAR",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "REMINDER_QUESTION",
+      "Type": "VARCHAR",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "REMINDER_ANSWER",
+      "Type": "VARCHAR",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "EMAIL",
+      "Type": "EMAIL",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "WEBSITE",
+      "Type": "VARCHAR",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "ICQ",
+      "Type": "VARCHAR",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "SKYPE",
+      "Type": "VARCHAR",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "AOL/AIM",
+      "Type": "VARCHAR",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "YAHOO",
+      "Type": "VARCHAR",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "MSN",
+      "Type": "VARCHAR",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "FORUM_SIGNATURE",
+      "Type": "VARCHAR",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "COMMON_FIELDS",
+      "Type": "SELECTLIST",
+      "OptionName": "1:M",
+      "OptionType": "COMMONFIELDS"
+    },
+    {
+      "FieldName": "IS_ACTIVE",
+      "Type": "BOOLEAN"
+    }
+  ],
+  "PM_PASSWORD": [
+    {
+      "FieldName": "username",
+      "Type": "text"
+    },
+    {
+      "FieldName": "Password",
+      "Type": "Password"
+    },
+    {
+      "FieldName": "website & url",
+      "Type": "TextArea",
+      "OptionName": "icon(autofill behaviour)",
+      "OptionType": "single selection",
+      "__EMPTY": "Fill anywhere on website (default)"
+    },
+    {
+      "OptionName": "icon(delete website)",
+      "__EMPTY": "only fill on this exact host"
+    },
+    {
+      "__EMPTY": "never fill on this website"
+    },
+    {
+      "FieldName": "Add more",
+      "Type": "selectlist",
+      "OptionName": "Text",
+      "OptionType": "TextArea"
+    },
+    {
+      "OptionName": "URL",
+      "OptionType": "TextArea with headline url"
+    },
+    {
+      "OptionName": "Email",
+      "OptionType": "TextArea with headline email"
+    },
+    {
+      "OptionName": "Address",
+      "OptionType": "TextArea with headline address"
+    },
+    {
+      "OptionName": "Date",
+      "OptionType": "calendar default current date"
+    },
+    {
+      "OptionName": "One-Time Password",
+      "OptionType": "TextArea with headline otp"
+    },
+    {
+      "OptionName": "Password",
+      "OptionType": "TextArea with headline password"
+    },
+    {
+      "OptionName": "Phone",
+      "OptionType": "TextArea with headline phone"
+    },
+    {
+      "OptionName": "Sign in with",
+      "OptionType": "select list of accounts",
+      "__EMPTY": "google, facebook, microsoft, github"
+    },
+    {
+      "OptionName": "Section",
+      "OptionType": "Text field"
+    },
+    {
+      "OptionName": "Attach a file",
+      "OptionType": "Allows to upload a file"
+    },
+    {
+      "FieldName": "notes ",
+      "Type": "TextArea"
+    },
+    {
+      "FieldName": "location",
+      "Type": "TextArea"
+    },
+    {
+      "FieldName": "tags (add tag)",
+      "Type": "select list"
+    },
+    {
+      "FieldName": "save",
+      "Type": "button"
+    },
+    {
+      "FieldName": "Table Details"
+    },
+    {
+      "FieldName": "Column Name",
+      "Type": "DataType",
+      "OptionName": "Relationship",
+      "OptionType": "Foreign Key"
+    },
+    {
+      "FieldName": "ID",
+      "Type": "UUID",
+      "OptionName": "Primary Key",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "VAULT_ID",
+      "Type": "UUID",
+      "OptionName": "M:1",
+      "OptionType": "VAULT.ID"
+    },
+    {
+      "FieldName": "USERNAME",
+      "Type": "VARCHAR",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "PASSWORD",
+      "Type": "VARCHAR",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "COMMON_FIELDS",
+      "Type": "SELECTLIST",
+      "OptionName": "1:M",
+      "OptionType": "COMMONFIELDS"
+    },
+    {
+      "FieldName": "IS_ACTIVE",
+      "Type": "BOOLEAN"
+    }
+  ],
+  "PM_DOCUMENT": [
+    {
+      "FieldName": "Add file",
+      "Type": "upload field"
+    },
+    {
+      "FieldName": "Add more",
+      "Type": "selectlist",
+      "OptionName": "Text",
+      "OptionType": "TextArea"
+    },
+    {
+      "OptionName": "URL",
+      "OptionType": "TextArea with headline url"
+    },
+    {
+      "OptionName": "Email",
+      "OptionType": "TextArea with headline email"
+    },
+    {
+      "OptionName": "Address",
+      "OptionType": "TextArea with headline address"
+    },
+    {
+      "OptionName": "Date",
+      "OptionType": "calendar default current date"
+    },
+    {
+      "OptionName": "One-Time Password",
+      "OptionType": "TextArea with headline otp"
+    },
+    {
+      "OptionName": "Password",
+      "OptionType": "TextArea with headline password"
+    },
+    {
+      "OptionName": "Phone",
+      "OptionType": "TextArea with headline phone"
+    },
+    {
+      "OptionName": "Sign in with",
+      "OptionType": "select list of accounts",
+      "__EMPTY": "google, facebook, microsoft, github"
+    },
+    {
+      "OptionName": "Section",
+      "OptionType": "Text field"
+    },
+    {
+      "OptionName": "Attach a file",
+      "OptionType": "Allows to upload a file"
+    },
+    {
+      "FieldName": "notes ",
+      "Type": "TextArea"
+    },
+    {
+      "FieldName": "location",
+      "Type": "TextArea"
+    },
+    {
+      "FieldName": "tags (add tag)",
+      "Type": "select list"
+    },
+    {
+      "FieldName": "save",
+      "Type": "button"
+    },
+    {
+      "FieldName": "Table Details"
+    },
+    {
+      "FieldName": "Column Name",
+      "Type": "DataType",
+      "OptionName": "Relationship",
+      "OptionType": "Foreign Key"
+    },
+    {
+      "FieldName": "ID",
+      "Type": "UUID",
+      "OptionName": "Primary Key",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "VAULT_ID",
+      "Type": "UUID",
+      "OptionName": "M:1",
+      "OptionType": "VAULT.ID"
+    },
+    {
+      "FieldName": "ADD FILE",
+      "Type": "UPLOAD",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "COMMON_FIELDS",
+      "Type": "SELECTLIST",
+      "OptionName": "1:M",
+      "OptionType": "COMMONFIELDS"
+    },
+    {
+      "FieldName": "IS_ACTIVE",
+      "Type": "BOOLEAN"
+    }
+  ],
+  "PM_API_CREDENTIALS": [
+    {
+      "FieldName": "username",
+      "Type": "text"
+    },
+    {
+      "FieldName": "credential",
+      "Type": "password"
+    },
+    {
+      "FieldName": "type",
+      "Type": "select list"
+    },
+    {
+      "FieldName": "filename",
+      "Type": "text"
+    },
+    {
+      "FieldName": "valid from",
+      "Type": "date"
+    },
+    {
+      "FieldName": "expires",
+      "Type": "date"
+    },
+    {
+      "FieldName": "host name",
+      "Type": "text"
+    },
+    {
+      "FieldName": "Add another field",
+      "Type": "selectlist",
+      "OptionName": "Text",
+      "OptionType": "TextArea"
+    },
+    {
+      "OptionName": "URL",
+      "OptionType": "TextArea with headline url"
+    },
+    {
+      "OptionName": "Email",
+      "OptionType": "TextArea with headline email"
+    },
+    {
+      "OptionName": "Address",
+      "OptionType": "TextArea with headline address"
+    },
+    {
+      "OptionName": "Date",
+      "OptionType": "calendar default current date"
+    },
+    {
+      "OptionName": "One-Time Password",
+      "OptionType": "TextArea with headline otp"
+    },
+    {
+      "OptionName": "Password",
+      "OptionType": "TextArea with headline password"
+    },
+    {
+      "OptionName": "Phone",
+      "OptionType": "TextArea with headline phone"
+    },
+    {
+      "OptionName": "Sign in with",
+      "OptionType": "select list of accounts",
+      "__EMPTY": "google, facebook, microsoft, github"
+    },
+    {
+      "OptionName": "Section",
+      "OptionType": "Text field"
+    },
+    {
+      "OptionName": "Attach a file",
+      "OptionType": "Allows to upload a file"
+    },
+    {
+      "FieldName": "Add more",
+      "Type": "selectlist",
+      "OptionName": "Text",
+      "OptionType": "TextArea"
+    },
+    {
+      "OptionName": "URL",
+      "OptionType": "TextArea with headline url"
+    },
+    {
+      "OptionName": "Email",
+      "OptionType": "TextArea with headline email"
+    },
+    {
+      "OptionName": "Address",
+      "OptionType": "TextArea with headline address"
+    },
+    {
+      "OptionName": "Date",
+      "OptionType": "calendar default current date"
+    },
+    {
+      "OptionName": "One-Time Password",
+      "OptionType": "TextArea with headline otp"
+    },
+    {
+      "OptionName": "Password",
+      "OptionType": "TextArea with headline password"
+    },
+    {
+      "OptionName": "Phone",
+      "OptionType": "TextArea with headline phone"
+    },
+    {
+      "OptionName": "Sign in with",
+      "OptionType": "select list of accounts",
+      "__EMPTY": "google, facebook, microsoft, github"
+    },
+    {
+      "OptionName": "Section",
+      "OptionType": "Text field"
+    },
+    {
+      "OptionName": "Attach a file",
+      "OptionType": "Allows to upload a file"
+    },
+    {
+      "FieldName": "notes ",
+      "Type": "TextArea"
+    },
+    {
+      "FieldName": "location",
+      "Type": "TextArea"
+    },
+    {
+      "FieldName": "tags (add tag)",
+      "Type": "select list"
+    },
+    {
+      "FieldName": "save",
+      "Type": "button"
+    },
+    {
+      "FieldName": "Table Details"
+    },
+    {
+      "FieldName": "Column Name",
+      "Type": "DataType",
+      "OptionName": "Relationship",
+      "OptionType": "Foreign Key"
+    },
+    {
+      "FieldName": "ID",
+      "Type": "UUID",
+      "OptionName": "Primary Key",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "VAULT_ID",
+      "Type": "UUID",
+      "OptionName": "M:1",
+      "OptionType": "VAULT.ID"
+    },
+    {
+      "FieldName": "USERNAME",
+      "Type": "VARCHAR",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "CREDENTIAL",
+      "Type": "VARCHAR",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "TYPE",
+      "Type": "SELECTLIST"
+    },
+    {
+      "FieldName": "FILENAME",
+      "Type": "VARCHAR"
+    },
+    {
+      "FieldName": "VALIDATES_FROM",
+      "Type": "DATE"
+    },
+    {
+      "FieldName": "EXPIRES",
+      "Type": "DATE"
+    },
+    {
+      "FieldName": "HOST_NAME",
+      "Type": "VARCHAR"
+    },
+    {
+      "FieldName": "COMMON_FIELDS",
+      "Type": "SELECTLIST",
+      "OptionName": "1:M",
+      "OptionType": "COMMONFIELDS"
+    },
+    {
+      "FieldName": "IS_ACTIVE",
+      "Type": "BOOLEAN"
+    }
+  ],
+  "PM_BANK_ACCOUNT": [
+    {
+      "FieldName": "bank name",
+      "Type": "text"
+    },
+    {
+      "FieldName": "name on account",
+      "Type": "text"
+    },
+    {
+      "FieldName": "type",
+      "Type": "select list"
+    },
+    {
+      "FieldName": "routing number",
+      "Type": "text"
+    },
+    {
+      "FieldName": "account number",
+      "Type": "text"
+    },
+    {
+      "FieldName": "SWIFT",
+      "Type": "text"
+    },
+    {
+      "FieldName": "IBAN ",
+      "Type": "text"
+    },
+    {
+      "FieldName": "PIN",
+      "Type": "password"
+    },
+    {
+      "FieldName": "Add another field",
+      "Type": "selectlist",
+      "OptionName": "Text",
+      "OptionType": "TextArea"
+    },
+    {
+      "OptionName": "URL",
+      "OptionType": "TextArea with headline url"
+    },
+    {
+      "OptionName": "Email",
+      "OptionType": "TextArea with headline email"
+    },
+    {
+      "OptionName": "Address",
+      "OptionType": "TextArea with headline address"
+    },
+    {
+      "OptionName": "Date",
+      "OptionType": "calendar default current date"
+    },
+    {
+      "OptionName": "One-Time Password",
+      "OptionType": "TextArea with headline otp"
+    },
+    {
+      "OptionName": "Password",
+      "OptionType": "TextArea with headline password"
+    },
+    {
+      "OptionName": "Phone",
+      "OptionType": "TextArea with headline phone"
+    },
+    {
+      "OptionName": "Sign in with",
+      "OptionType": "select list of accounts",
+      "__EMPTY": "google, facebook, microsoft, github"
+    },
+    {
+      "OptionName": "Section",
+      "OptionType": "Text field"
+    },
+    {
+      "OptionName": "Attach a file",
+      "OptionType": "Allows to upload a file"
+    },
+    {
+      "FieldName": "Branch Information"
+    },
+    {
+      "FieldName": "phone",
+      "Type": "text"
+    },
+    {
+      "FieldName": "address",
+      "Type": "text"
+    },
+    {
+      "FieldName": "Add another field",
+      "Type": "selectlist",
+      "OptionName": "Text",
+      "OptionType": "TextArea"
+    },
+    {
+      "OptionName": "URL",
+      "OptionType": "TextArea with headline url"
+    },
+    {
+      "OptionName": "Email",
+      "OptionType": "TextArea with headline email"
+    },
+    {
+      "OptionName": "Address",
+      "OptionType": "TextArea with headline address"
+    },
+    {
+      "OptionName": "Date",
+      "OptionType": "calendar default current date"
+    },
+    {
+      "OptionName": "One-Time Password",
+      "OptionType": "TextArea with headline otp"
+    },
+    {
+      "OptionName": "Password",
+      "OptionType": "TextArea with headline password"
+    },
+    {
+      "OptionName": "Phone",
+      "OptionType": "TextArea with headline phone"
+    },
+    {
+      "OptionName": "Sign in with",
+      "OptionType": "select list of accounts",
+      "__EMPTY": "google, facebook, microsoft, github"
+    },
+    {
+      "OptionName": "Section",
+      "OptionType": "Text field"
+    },
+    {
+      "OptionName": "Attach a file",
+      "OptionType": "Allows to upload a file"
+    },
+    {
+      "FieldName": "Add more",
+      "Type": "selectlist",
+      "OptionName": "Text",
+      "OptionType": "TextArea"
+    },
+    {
+      "OptionName": "URL",
+      "OptionType": "TextArea with headline url"
+    },
+    {
+      "OptionName": "Email",
+      "OptionType": "TextArea with headline email"
+    },
+    {
+      "OptionName": "Address",
+      "OptionType": "TextArea with headline address"
+    },
+    {
+      "OptionName": "Date",
+      "OptionType": "calendar default current date"
+    },
+    {
+      "OptionName": "One-Time Password",
+      "OptionType": "TextArea with headline otp"
+    },
+    {
+      "OptionName": "Password",
+      "OptionType": "TextArea with headline password"
+    },
+    {
+      "OptionName": "Phone",
+      "OptionType": "TextArea with headline phone"
+    },
+    {
+      "OptionName": "Sign in with",
+      "OptionType": "select list of accounts",
+      "__EMPTY": "google, facebook, microsoft, github"
+    },
+    {
+      "OptionName": "Section",
+      "OptionType": "Text field"
+    },
+    {
+      "OptionName": "Attach a file",
+      "OptionType": "Allows to upload a file"
+    },
+    {
+      "FieldName": "notes ",
+      "Type": "TextArea"
+    },
+    {
+      "FieldName": "location",
+      "Type": "TextArea"
+    },
+    {
+      "FieldName": "tags (add tag)",
+      "Type": "select list"
+    },
+    {
+      "FieldName": "save",
+      "Type": "button"
+    },
+    {
+      "FieldName": "Table Details"
+    },
+    {
+      "FieldName": "Column Name",
+      "Type": "DataType",
+      "OptionName": "Relationship",
+      "OptionType": "Foreign Key"
+    },
+    {
+      "FieldName": "ID",
+      "Type": "UUID",
+      "OptionName": "Primary Key",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "VAULT_ID",
+      "Type": "UUID",
+      "OptionName": "M:1",
+      "OptionType": "VAULT.ID"
+    },
+    {
+      "FieldName": "BANK_NAME",
+      "Type": "VARCHAR",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "NAME_ON_ACCOUNT",
+      "Type": "VARCHAR",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "TYPE",
+      "Type": "SELECTLIST",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "ROUTING_NUMBER",
+      "Type": "VARCHAR",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "ACCOUNT_NUMBER",
+      "Type": "VARCHAR",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "SWIFT",
+      "Type": "VARCHAR",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "IBAN ",
+      "Type": "VARCHAR",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "PIN",
+      "Type": "PASSWORD",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "BANK_PHONE",
+      "Type": "NUMBER",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "BANK_ADDRESS",
+      "Type": "VARCHAR",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "COMMON_FIELDS",
+      "Type": "SELECTLIST",
+      "OptionName": "1:M",
+      "OptionType": "COMMONFIELDS"
+    },
+    {
+      "FieldName": "IS_ACTIVE",
+      "Type": "BOOLEAN"
+    }
+  ],
+  "PM_CRYPTOWALLET": [
+    {
+      "FieldName": "recovery phrase",
+      "Type": "password"
+    },
+    {
+      "FieldName": "password",
+      "Type": "password"
+    },
+    {
+      "FieldName": "Add another field",
+      "Type": "selectlist",
+      "OptionName": "Text",
+      "OptionType": "TextArea"
+    },
+    {
+      "OptionName": "URL",
+      "OptionType": "TextArea with headline url"
+    },
+    {
+      "OptionName": "Email",
+      "OptionType": "TextArea with headline email"
+    },
+    {
+      "OptionName": "Address",
+      "OptionType": "TextArea with headline address"
+    },
+    {
+      "OptionName": "Date",
+      "OptionType": "calendar default current date"
+    },
+    {
+      "OptionName": "One-Time Password",
+      "OptionType": "TextArea with headline otp"
+    },
+    {
+      "OptionName": "Password",
+      "OptionType": "TextArea with headline password"
+    },
+    {
+      "OptionName": "Phone",
+      "OptionType": "TextArea with headline phone"
+    },
+    {
+      "OptionName": "Sign in with",
+      "OptionType": "select list of accounts",
+      "__EMPTY": "google, facebook, microsoft, github"
+    },
+    {
+      "OptionName": "Section",
+      "OptionType": "Text field"
+    },
+    {
+      "OptionName": "Attach a file",
+      "OptionType": "Allows to upload a file"
+    },
+    {
+      "FieldName": "wallet"
+    },
+    {
+      "FieldName": "wallet address",
+      "Type": "text"
+    },
+    {
+      "FieldName": "Add another field",
+      "Type": "selectlist",
+      "OptionName": "Text",
+      "OptionType": "TextArea"
+    },
+    {
+      "OptionName": "URL",
+      "OptionType": "TextArea with headline url"
+    },
+    {
+      "OptionName": "Email",
+      "OptionType": "TextArea with headline email"
+    },
+    {
+      "OptionName": "Address",
+      "OptionType": "TextArea with headline address"
+    },
+    {
+      "OptionName": "Date",
+      "OptionType": "calendar default current date"
+    },
+    {
+      "OptionName": "One-Time Password",
+      "OptionType": "TextArea with headline otp"
+    },
+    {
+      "OptionName": "Password",
+      "OptionType": "TextArea with headline password"
+    },
+    {
+      "OptionName": "Phone",
+      "OptionType": "TextArea with headline phone"
+    },
+    {
+      "OptionName": "Sign in with",
+      "OptionType": "select list of accounts",
+      "__EMPTY": "google, facebook, microsoft, github"
+    },
+    {
+      "OptionName": "Section",
+      "OptionType": "Text field"
+    },
+    {
+      "OptionName": "Attach a file",
+      "OptionType": "Allows to upload a file"
+    },
+    {
+      "FieldName": "Add more",
+      "Type": "selectlist",
+      "OptionName": "Text",
+      "OptionType": "TextArea"
+    },
+    {
+      "OptionName": "URL",
+      "OptionType": "TextArea with headline url"
+    },
+    {
+      "OptionName": "Email",
+      "OptionType": "TextArea with headline email"
+    },
+    {
+      "OptionName": "Address",
+      "OptionType": "TextArea with headline address"
+    },
+    {
+      "OptionName": "Date",
+      "OptionType": "calendar default current date"
+    },
+    {
+      "OptionName": "One-Time Password",
+      "OptionType": "TextArea with headline otp"
+    },
+    {
+      "OptionName": "Password",
+      "OptionType": "TextArea with headline password"
+    },
+    {
+      "OptionName": "Phone",
+      "OptionType": "TextArea with headline phone"
+    },
+    {
+      "OptionName": "Sign in with",
+      "OptionType": "select list of accounts",
+      "__EMPTY": "google, facebook, microsoft, github"
+    },
+    {
+      "OptionName": "Section",
+      "OptionType": "Text field"
+    },
+    {
+      "OptionName": "Attach a file",
+      "OptionType": "Allows to upload a file"
+    },
+    {
+      "FieldName": "notes ",
+      "Type": "TextArea"
+    },
+    {
+      "FieldName": "location",
+      "Type": "TextArea"
+    },
+    {
+      "FieldName": "tags (add tag)",
+      "Type": "select list"
+    },
+    {
+      "FieldName": "save",
+      "Type": "button"
+    },
+    {
+      "FieldName": "Table Details"
+    },
+    {
+      "FieldName": "Column Name",
+      "Type": "DataType",
+      "OptionName": "Relationship",
+      "OptionType": "Foreign Key"
+    },
+    {
+      "FieldName": "ID",
+      "Type": "UUID",
+      "OptionName": "Primary Key",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "VAULT_ID",
+      "Type": "UUID",
+      "OptionName": "M:1",
+      "OptionType": "VAULT.ID"
+    },
+    {
+      "FieldName": "RECOVERY_PHRASE",
+      "Type": "PASSWORD",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "PASSWORD",
+      "Type": "PASSWORD",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "WALLET_ADDRESS",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "COMMON_FIELDS",
+      "Type": "SELECTLIST",
+      "OptionName": "1:M",
+      "OptionType": "COMMONFIELDS"
+    },
+    {
+      "FieldName": "IS_ACTIVE",
+      "Type": "BOOLEAN"
+    }
+  ],
+  "PM_DATABASE": [
+    {
+      "FieldName": "type",
+      "Type": "selectlist"
+    },
+    {
+      "FieldName": "server",
+      "Type": "text"
+    },
+    {
+      "FieldName": "port",
+      "Type": "text"
+    },
+    {
+      "FieldName": "database",
+      "Type": "text"
+    },
+    {
+      "FieldName": "username",
+      "Type": "text"
+    },
+    {
+      "FieldName": "password",
+      "Type": "password"
+    },
+    {
+      "FieldName": "SID",
+      "Type": "text"
+    },
+    {
+      "FieldName": "alias",
+      "Type": "text"
+    },
+    {
+      "FieldName": "connection options",
+      "Type": "text"
+    },
+    {
+      "FieldName": "Add another field",
+      "Type": "selectlist",
+      "OptionName": "Text",
+      "OptionType": "TextArea"
+    },
+    {
+      "OptionName": "URL",
+      "OptionType": "TextArea with headline url"
+    },
+    {
+      "OptionName": "Email",
+      "OptionType": "TextArea with headline email"
+    },
+    {
+      "OptionName": "Address",
+      "OptionType": "TextArea with headline address"
+    },
+    {
+      "OptionName": "Date",
+      "OptionType": "calendar default current date"
+    },
+    {
+      "OptionName": "One-Time Password",
+      "OptionType": "TextArea with headline otp"
+    },
+    {
+      "OptionName": "Password",
+      "OptionType": "TextArea with headline password"
+    },
+    {
+      "OptionName": "Phone",
+      "OptionType": "TextArea with headline phone"
+    },
+    {
+      "OptionName": "Sign in with",
+      "OptionType": "select list of accounts",
+      "__EMPTY": "google, facebook, microsoft, github"
+    },
+    {
+      "OptionName": "Section",
+      "OptionType": "Text field"
+    },
+    {
+      "OptionName": "Attach a file",
+      "OptionType": "Allows to upload a file"
+    },
+    {
+      "FieldName": "Add more",
+      "Type": "selectlist",
+      "OptionName": "Text",
+      "OptionType": "TextArea"
+    },
+    {
+      "OptionName": "URL",
+      "OptionType": "TextArea with headline url"
+    },
+    {
+      "OptionName": "Email",
+      "OptionType": "TextArea with headline email"
+    },
+    {
+      "OptionName": "Address",
+      "OptionType": "TextArea with headline address"
+    },
+    {
+      "OptionName": "Date",
+      "OptionType": "calendar default current date"
+    },
+    {
+      "OptionName": "One-Time Password",
+      "OptionType": "TextArea with headline otp"
+    },
+    {
+      "OptionName": "Password",
+      "OptionType": "TextArea with headline password"
+    },
+    {
+      "OptionName": "Phone",
+      "OptionType": "TextArea with headline phone"
+    },
+    {
+      "OptionName": "Sign in with",
+      "OptionType": "select list of accounts",
+      "__EMPTY": "google, facebook, microsoft, github"
+    },
+    {
+      "OptionName": "Section",
+      "OptionType": "Text field"
+    },
+    {
+      "OptionName": "Attach a file",
+      "OptionType": "Allows to upload a file"
+    },
+    {
+      "FieldName": "notes ",
+      "Type": "TextArea"
+    },
+    {
+      "FieldName": "location",
+      "Type": "TextArea"
+    },
+    {
+      "FieldName": "tags (add tag)",
+      "Type": "select list"
+    },
+    {
+      "FieldName": "save",
+      "Type": "button"
+    },
+    {
+      "FieldName": "Table Details"
+    },
+    {
+      "FieldName": "Column Name",
+      "Type": "DataType",
+      "OptionName": "Relationship",
+      "OptionType": "Foreign Key"
+    },
+    {
+      "FieldName": "ID",
+      "Type": "UUID",
+      "OptionName": "Primary Key",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "VAULT_ID",
+      "Type": "UUID",
+      "OptionName": "M:1",
+      "OptionType": "VAULT.ID"
+    },
+    {
+      "FieldName": "TYPE",
+      "Type": "SELECTLIST",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "PASSWORD",
+      "Type": "PASSWORD",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "SERVER",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "PORT",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "DATABASE",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "USERNAME",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "PASSWORD",
+      "Type": "PASSWORD",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "SID",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "ALIAS",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "CONNECTION_OPTIONS",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "COMMON_FIELDS",
+      "Type": "SELECTLIST",
+      "OptionName": "1:M",
+      "OptionType": "COMMONFIELDS"
+    },
+    {
+      "FieldName": "IS_ACTIVE",
+      "Type": "BOOLEAN"
+    }
+  ],
+  "PM_DRIVING_LICENSE": [
+    {
+      "FieldName": "full name",
+      "Type": "text"
+    },
+    {
+      "FieldName": "address",
+      "Type": "text"
+    },
+    {
+      "FieldName": "date of birth",
+      "Type": "date"
+    },
+    {
+      "FieldName": "gender",
+      "Type": "text"
+    },
+    {
+      "FieldName": "height",
+      "Type": "text"
+    },
+    {
+      "FieldName": "number",
+      "Type": "text"
+    },
+    {
+      "FieldName": "license class",
+      "Type": "text"
+    },
+    {
+      "FieldName": "conditions/restrictions",
+      "Type": "text"
+    },
+    {
+      "FieldName": "state",
+      "Type": "text"
+    },
+    {
+      "FieldName": "country",
+      "Type": "text"
+    },
+    {
+      "FieldName": "expiry date",
+      "Type": "date"
+    },
+    {
+      "FieldName": "Add another field",
+      "Type": "selectlist",
+      "OptionName": "Text",
+      "OptionType": "TextArea"
+    },
+    {
+      "OptionName": "URL",
+      "OptionType": "TextArea with headline url"
+    },
+    {
+      "OptionName": "Email",
+      "OptionType": "TextArea with headline email"
+    },
+    {
+      "OptionName": "Address",
+      "OptionType": "TextArea with headline address"
+    },
+    {
+      "OptionName": "Date",
+      "OptionType": "calendar default current date"
+    },
+    {
+      "OptionName": "One-Time Password",
+      "OptionType": "TextArea with headline otp"
+    },
+    {
+      "OptionName": "Password",
+      "OptionType": "TextArea with headline password"
+    },
+    {
+      "OptionName": "Phone",
+      "OptionType": "TextArea with headline phone"
+    },
+    {
+      "OptionName": "Sign in with",
+      "OptionType": "select list of accounts",
+      "__EMPTY": "google, facebook, microsoft, github"
+    },
+    {
+      "OptionName": "Section",
+      "OptionType": "Text field"
+    },
+    {
+      "OptionName": "Attach a file",
+      "OptionType": "Allows to upload a file"
+    },
+    {
+      "FieldName": "Add more",
+      "Type": "selectlist",
+      "OptionName": "Text",
+      "OptionType": "TextArea"
+    },
+    {
+      "OptionName": "URL",
+      "OptionType": "TextArea with headline url"
+    },
+    {
+      "OptionName": "Email",
+      "OptionType": "TextArea with headline email"
+    },
+    {
+      "OptionName": "Address",
+      "OptionType": "TextArea with headline address"
+    },
+    {
+      "OptionName": "Date",
+      "OptionType": "calendar default current date"
+    },
+    {
+      "OptionName": "One-Time Password",
+      "OptionType": "TextArea with headline otp"
+    },
+    {
+      "OptionName": "Password",
+      "OptionType": "TextArea with headline password"
+    },
+    {
+      "OptionName": "Phone",
+      "OptionType": "TextArea with headline phone"
+    },
+    {
+      "OptionName": "Sign in with",
+      "OptionType": "select list of accounts",
+      "__EMPTY": "google, facebook, microsoft, github"
+    },
+    {
+      "OptionName": "Section",
+      "OptionType": "Text field"
+    },
+    {
+      "OptionName": "Attach a file",
+      "OptionType": "Allows to upload a file"
+    },
+    {
+      "FieldName": "notes ",
+      "Type": "TextArea"
+    },
+    {
+      "FieldName": "location",
+      "Type": "TextArea"
+    },
+    {
+      "FieldName": "tags (add tag)",
+      "Type": "select list"
+    },
+    {
+      "FieldName": "save",
+      "Type": "button"
+    },
+    {
+      "FieldName": "Table Details"
+    },
+    {
+      "FieldName": "Column Name",
+      "Type": "DataType",
+      "OptionName": "Relationship",
+      "OptionType": "Foreign Key"
+    },
+    {
+      "FieldName": "ID",
+      "Type": "UUID",
+      "OptionName": "Primary Key",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "VAULT_ID",
+      "Type": "UUID",
+      "OptionName": "M:1",
+      "OptionType": "VAULT.ID"
+    },
+    {
+      "FieldName": "FULLNAME",
+      "Type": "SELECTLIST",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "ADDRESS",
+      "Type": "PASSWORD",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "DATE_OF_BIRTH",
+      "Type": "DATE",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "GENDER",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "HEIGHT",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "NUMBER",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "LICENSE CLASS",
+      "Type": "PASSWORD",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "CONDITIONS",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "STATE",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "COUNTRY",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "EXPIRY_DATE",
+      "Type": "DATE",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "COMMON_FIELDS",
+      "Type": "SELECTLIST",
+      "OptionName": "1:M",
+      "OptionType": "COMMONFIELDS"
+    },
+    {
+      "FieldName": "IS_ACTIVE",
+      "Type": "BOOLEAN"
+    }
+  ],
+  "PM_EMAIL": [
+    {
+      "FieldName": "type",
+      "Type": "selectlist"
+    },
+    {
+      "FieldName": "username",
+      "Type": "text"
+    },
+    {
+      "FieldName": "server",
+      "Type": "text"
+    },
+    {
+      "FieldName": "port number",
+      "Type": "text"
+    },
+    {
+      "FieldName": "password",
+      "Type": "password"
+    },
+    {
+      "FieldName": "security",
+      "Type": "selectlist"
+    },
+    {
+      "FieldName": "auth method",
+      "Type": "selectlist"
+    },
+    {
+      "FieldName": "Add another field",
+      "Type": "selectlist",
+      "OptionName": "Text",
+      "OptionType": "TextArea"
+    },
+    {
+      "OptionName": "URL",
+      "OptionType": "TextArea with headline url"
+    },
+    {
+      "OptionName": "Email",
+      "OptionType": "TextArea with headline email"
+    },
+    {
+      "OptionName": "Address",
+      "OptionType": "TextArea with headline address"
+    },
+    {
+      "OptionName": "Date",
+      "OptionType": "calendar default current date"
+    },
+    {
+      "OptionName": "One-Time Password",
+      "OptionType": "TextArea with headline otp"
+    },
+    {
+      "OptionName": "Password",
+      "OptionType": "TextArea with headline password"
+    },
+    {
+      "OptionName": "Phone",
+      "OptionType": "TextArea with headline phone"
+    },
+    {
+      "OptionName": "Sign in with",
+      "OptionType": "select list of accounts",
+      "__EMPTY": "google, facebook, microsoft, github"
+    },
+    {
+      "OptionName": "Section",
+      "OptionType": "Text field"
+    },
+    {
+      "OptionName": "Attach a file",
+      "OptionType": "Allows to upload a file"
+    },
+    {
+      "FieldName": "SMTP"
+    },
+    {
+      "FieldName": "SMTP server",
+      "Type": "text"
+    },
+    {
+      "FieldName": "port number",
+      "Type": "text"
+    },
+    {
+      "FieldName": "username",
+      "Type": "text"
+    },
+    {
+      "FieldName": "password",
+      "Type": "password"
+    },
+    {
+      "FieldName": "security ",
+      "Type": "selectlist"
+    },
+    {
+      "FieldName": "auth method",
+      "Type": "selectlist"
+    },
+    {
+      "FieldName": "contact information"
+    },
+    {
+      "FieldName": "provider",
+      "Type": "text"
+    },
+    {
+      "FieldName": "provider's website",
+      "Type": "text"
+    },
+    {
+      "FieldName": "phone",
+      "Type": "text"
+    },
+    {
+      "FieldName": "Add another field",
+      "Type": "selectlist",
+      "OptionName": "Text",
+      "OptionType": "TextArea"
+    },
+    {
+      "OptionName": "URL",
+      "OptionType": "TextArea with headline url"
+    },
+    {
+      "OptionName": "Email",
+      "OptionType": "TextArea with headline email"
+    },
+    {
+      "OptionName": "Address",
+      "OptionType": "TextArea with headline address"
+    },
+    {
+      "OptionName": "Date",
+      "OptionType": "calendar default current date"
+    },
+    {
+      "OptionName": "One-Time Password",
+      "OptionType": "TextArea with headline otp"
+    },
+    {
+      "OptionName": "Password",
+      "OptionType": "TextArea with headline password"
+    },
+    {
+      "OptionName": "Phone",
+      "OptionType": "TextArea with headline phone"
+    },
+    {
+      "OptionName": "Sign in with",
+      "OptionType": "select list of accounts",
+      "__EMPTY": "google, facebook, microsoft, github"
+    },
+    {
+      "OptionName": "Section",
+      "OptionType": "Text field"
+    },
+    {
+      "OptionName": "Attach a file",
+      "OptionType": "Allows to upload a file"
+    },
+    {
+      "FieldName": "Add more",
+      "Type": "selectlist",
+      "OptionName": "Text",
+      "OptionType": "TextArea"
+    },
+    {
+      "OptionName": "URL",
+      "OptionType": "TextArea with headline url"
+    },
+    {
+      "OptionName": "Email",
+      "OptionType": "TextArea with headline email"
+    },
+    {
+      "OptionName": "Address",
+      "OptionType": "TextArea with headline address"
+    },
+    {
+      "OptionName": "Date",
+      "OptionType": "calendar default current date"
+    },
+    {
+      "OptionName": "One-Time Password",
+      "OptionType": "TextArea with headline otp"
+    },
+    {
+      "OptionName": "Password",
+      "OptionType": "TextArea with headline password"
+    },
+    {
+      "OptionName": "Phone",
+      "OptionType": "TextArea with headline phone"
+    },
+    {
+      "OptionName": "Sign in with",
+      "OptionType": "select list of accounts",
+      "__EMPTY": "google, facebook, microsoft, github"
+    },
+    {
+      "OptionName": "Section",
+      "OptionType": "Text field"
+    },
+    {
+      "OptionName": "Attach a file",
+      "OptionType": "Allows to upload a file"
+    },
+    {
+      "FieldName": "notes ",
+      "Type": "TextArea"
+    },
+    {
+      "FieldName": "location",
+      "Type": "TextArea"
+    },
+    {
+      "FieldName": "tags (add tag)",
+      "Type": "select list"
+    },
+    {
+      "FieldName": "save",
+      "Type": "button"
+    },
+    {
+      "FieldName": "Table Details"
+    },
+    {
+      "FieldName": "Column Name",
+      "Type": "DataType",
+      "OptionName": "Relationship",
+      "OptionType": "Foreign Key"
+    },
+    {
+      "FieldName": "ID",
+      "Type": "UUID",
+      "OptionName": "Primary Key",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "VAULT_ID",
+      "Type": "UUID",
+      "OptionName": "M:1",
+      "OptionType": "VAULT.ID"
+    },
+    {
+      "FieldName": "TYPE",
+      "Type": "SELECTLIST",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "USERNAME",
+      "Type": "VARCHAR",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "SERVER",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "PORTNUMBER",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "PASSWORD",
+      "Type": "PASSWORD",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "SECURITY",
+      "Type": "SELECTLIST",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "AUTH_METHOD",
+      "Type": "SELECTLIST",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "SMTP_SERVER",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "SMTP_PORT_NUMBER",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "USERNAME",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "PASSWORD",
+      "Type": "PASSWORD",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "SECURITY",
+      "Type": "SELECTLIST",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "AUTH_METHOD",
+      "Type": "SELECTLIST",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "PROVIDER",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "PROVIDER_WEBSITE",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "PROVIDER_PHONE",
+      "Type": "NUMBER",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "COMMON_FIELDS",
+      "Type": "SELECTLIST",
+      "OptionName": "1:M",
+      "OptionType": "COMMONFIELDS"
+    },
+    {
+      "FieldName": "IS_ACTIVE",
+      "Type": "BOOLEAN"
+    }
+  ],
+  "PM_MEDICAL_RECORD": [
+    {
+      "FieldName": "date",
+      "Type": "date"
+    },
+    {
+      "FieldName": "location",
+      "Type": "text"
+    },
+    {
+      "FieldName": "healthcare professional",
+      "Type": "text"
+    },
+    {
+      "FieldName": "patient",
+      "Type": "text"
+    },
+    {
+      "FieldName": "reason for visit",
+      "Type": "text"
+    },
+    {
+      "FieldName": "Add another field",
+      "Type": "selectlist",
+      "OptionName": "Text",
+      "OptionType": "TextArea"
+    },
+    {
+      "OptionName": "URL",
+      "OptionType": "TextArea with headline url"
+    },
+    {
+      "OptionName": "Email",
+      "OptionType": "TextArea with headline email"
+    },
+    {
+      "OptionName": "Address",
+      "OptionType": "TextArea with headline address"
+    },
+    {
+      "OptionName": "Date",
+      "OptionType": "calendar default current date"
+    },
+    {
+      "OptionName": "One-Time Password",
+      "OptionType": "TextArea with headline otp"
+    },
+    {
+      "OptionName": "Password",
+      "OptionType": "TextArea with headline password"
+    },
+    {
+      "OptionName": "Phone",
+      "OptionType": "TextArea with headline phone"
+    },
+    {
+      "OptionName": "Sign in with",
+      "OptionType": "select list of accounts",
+      "__EMPTY": "google, facebook, microsoft, github"
+    },
+    {
+      "OptionName": "Section",
+      "OptionType": "Text field"
+    },
+    {
+      "OptionName": "Attach a file",
+      "OptionType": "Allows to upload a file"
+    },
+    {
+      "FieldName": "medication"
+    },
+    {
+      "FieldName": "medication name",
+      "Type": "text"
+    },
+    {
+      "FieldName": "dosage",
+      "Type": "text"
+    },
+    {
+      "FieldName": "Medication notes",
+      "Type": "text"
+    },
+    {
+      "FieldName": "Add another field",
+      "Type": "selectlist",
+      "OptionName": "Text",
+      "OptionType": "TextArea"
+    },
+    {
+      "OptionName": "URL",
+      "OptionType": "TextArea with headline url"
+    },
+    {
+      "OptionName": "Email",
+      "OptionType": "TextArea with headline email"
+    },
+    {
+      "OptionName": "Address",
+      "OptionType": "TextArea with headline address"
+    },
+    {
+      "OptionName": "Date",
+      "OptionType": "calendar default current date"
+    },
+    {
+      "OptionName": "One-Time Password",
+      "OptionType": "TextArea with headline otp"
+    },
+    {
+      "OptionName": "Password",
+      "OptionType": "TextArea with headline password"
+    },
+    {
+      "OptionName": "Phone",
+      "OptionType": "TextArea with headline phone"
+    },
+    {
+      "OptionName": "Sign in with",
+      "OptionType": "select list of accounts",
+      "__EMPTY": "google, facebook, microsoft, github"
+    },
+    {
+      "OptionName": "Section",
+      "OptionType": "Text field"
+    },
+    {
+      "OptionName": "Attach a file",
+      "OptionType": "Allows to upload a file"
+    },
+    {
+      "FieldName": "Add more",
+      "Type": "selectlist",
+      "OptionName": "Text",
+      "OptionType": "TextArea"
+    },
+    {
+      "OptionName": "URL",
+      "OptionType": "TextArea with headline url"
+    },
+    {
+      "OptionName": "Email",
+      "OptionType": "TextArea with headline email"
+    },
+    {
+      "OptionName": "Address",
+      "OptionType": "TextArea with headline address"
+    },
+    {
+      "OptionName": "Date",
+      "OptionType": "calendar default current date"
+    },
+    {
+      "OptionName": "One-Time Password",
+      "OptionType": "TextArea with headline otp"
+    },
+    {
+      "OptionName": "Password",
+      "OptionType": "TextArea with headline password"
+    },
+    {
+      "OptionName": "Phone",
+      "OptionType": "TextArea with headline phone"
+    },
+    {
+      "OptionName": "Sign in with",
+      "OptionType": "select list of accounts",
+      "__EMPTY": "google, facebook, microsoft, github"
+    },
+    {
+      "OptionName": "Section",
+      "OptionType": "Text field"
+    },
+    {
+      "OptionName": "Attach a file",
+      "OptionType": "Allows to upload a file"
+    },
+    {
+      "FieldName": "notes ",
+      "Type": "TextArea"
+    },
+    {
+      "FieldName": "location",
+      "Type": "TextArea"
+    },
+    {
+      "FieldName": "tags (add tag)",
+      "Type": "select list"
+    },
+    {
+      "FieldName": "save",
+      "Type": "button"
+    },
+    {
+      "FieldName": "Table Details"
+    },
+    {
+      "FieldName": "Column Name",
+      "Type": "DataType",
+      "OptionName": "Relationship",
+      "OptionType": "Foreign Key"
+    },
+    {
+      "FieldName": "ID",
+      "Type": "UUID",
+      "OptionName": "Primary Key",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "VAULT_ID",
+      "Type": "UUID",
+      "OptionName": "M:1",
+      "OptionType": "VAULT.ID"
+    },
+    {
+      "FieldName": "DATE",
+      "Type": "DATE",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "LOCATION",
+      "Type": "VARCHAR",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "HEALTHCARE PROFESSIONAL",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "PATIENT",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "REASON_OF_VISIT",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "MEDICATION_NAME",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "DOSAGE",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "MEDICATION_NOTES",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "COMMON_FIELDS",
+      "Type": "SELECTLIST",
+      "OptionName": "1:M",
+      "OptionType": "COMMONFIELDS"
+    },
+    {
+      "FieldName": "IS_ACTIVE",
+      "Type": "BOOLEAN"
+    }
+  ],
+  "PM_MEMBERSHIP": [
+    {
+      "FieldName": "group",
+      "Type": "text"
+    },
+    {
+      "FieldName": "website",
+      "Type": "text"
+    },
+    {
+      "FieldName": "telephone",
+      "Type": "text"
+    },
+    {
+      "FieldName": "member name",
+      "Type": "text"
+    },
+    {
+      "FieldName": "member since",
+      "Type": "date"
+    },
+    {
+      "FieldName": "expiry date",
+      "Type": "date"
+    },
+    {
+      "FieldName": "member ID",
+      "Type": "text"
+    },
+    {
+      "FieldName": "PIN",
+      "Type": "password"
+    },
+    {
+      "FieldName": "Add another field",
+      "Type": "selectlist",
+      "OptionName": "Text",
+      "OptionType": "TextArea"
+    },
+    {
+      "OptionName": "URL",
+      "OptionType": "TextArea with headline url"
+    },
+    {
+      "OptionName": "Email",
+      "OptionType": "TextArea with headline email"
+    },
+    {
+      "OptionName": "Address",
+      "OptionType": "TextArea with headline address"
+    },
+    {
+      "OptionName": "Date",
+      "OptionType": "calendar default current date"
+    },
+    {
+      "OptionName": "One-Time Password",
+      "OptionType": "TextArea with headline otp"
+    },
+    {
+      "OptionName": "Password",
+      "OptionType": "TextArea with headline password"
+    },
+    {
+      "OptionName": "Phone",
+      "OptionType": "TextArea with headline phone"
+    },
+    {
+      "OptionName": "Sign in with",
+      "OptionType": "select list of accounts",
+      "__EMPTY": "google, facebook, microsoft, github"
+    },
+    {
+      "OptionName": "Section",
+      "OptionType": "Text field"
+    },
+    {
+      "OptionName": "Attach a file",
+      "OptionType": "Allows to upload a file"
+    },
+    {
+      "FieldName": "Add more",
+      "Type": "selectlist",
+      "OptionName": "Text",
+      "OptionType": "TextArea"
+    },
+    {
+      "OptionName": "URL",
+      "OptionType": "TextArea with headline url"
+    },
+    {
+      "OptionName": "Email",
+      "OptionType": "TextArea with headline email"
+    },
+    {
+      "OptionName": "Address",
+      "OptionType": "TextArea with headline address"
+    },
+    {
+      "OptionName": "Date",
+      "OptionType": "calendar default current date"
+    },
+    {
+      "OptionName": "One-Time Password",
+      "OptionType": "TextArea with headline otp"
+    },
+    {
+      "OptionName": "Password",
+      "OptionType": "TextArea with headline password"
+    },
+    {
+      "OptionName": "Phone",
+      "OptionType": "TextArea with headline phone"
+    },
+    {
+      "OptionName": "Sign in with",
+      "OptionType": "select list of accounts",
+      "__EMPTY": "google, facebook, microsoft, github"
+    },
+    {
+      "OptionName": "Section",
+      "OptionType": "Text field"
+    },
+    {
+      "OptionName": "Attach a file",
+      "OptionType": "Allows to upload a file"
+    },
+    {
+      "FieldName": "notes ",
+      "Type": "TextArea"
+    },
+    {
+      "FieldName": "location",
+      "Type": "TextArea"
+    },
+    {
+      "FieldName": "tags (add tag)",
+      "Type": "select list"
+    },
+    {
+      "FieldName": "save",
+      "Type": "button"
+    },
+    {
+      "FieldName": "Table Details"
+    },
+    {
+      "FieldName": "Column Name",
+      "Type": "DataType",
+      "OptionName": "Relationship",
+      "OptionType": "Foreign Key"
+    },
+    {
+      "FieldName": "ID",
+      "Type": "UUID",
+      "OptionName": "Primary Key",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "VAULT_ID",
+      "Type": "UUID",
+      "OptionName": "M:1",
+      "OptionType": "VAULT.ID"
+    },
+    {
+      "FieldName": "GROUP",
+      "Type": "VARCHAR",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "WEBSITE",
+      "Type": "VARCHAR",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "TELEPHONE",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "MEMBER_NAME",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "MEMBER_SINCE",
+      "Type": "DATE",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "EXPIRY_DATE",
+      "Type": "DATE",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "MEMBER_ID",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "PIN",
+      "Type": "PASSWORD",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "COMMON_FIELDS",
+      "Type": "SELECTLIST",
+      "OptionName": "1:M",
+      "OptionType": "COMMONFIELDS"
+    },
+    {
+      "FieldName": "IS_ACTIVE",
+      "Type": "BOOLEAN"
+    }
+  ],
+  "PM_OUTDOOR_LICENSE": [
+    {
+      "FieldName": "full name",
+      "Type": "text"
+    },
+    {
+      "FieldName": "valid from",
+      "Type": "date"
+    },
+    {
+      "FieldName": "expire",
+      "Type": "date"
+    },
+    {
+      "FieldName": "approved wildlife",
+      "Type": "text"
+    },
+    {
+      "FieldName": "maximum quota",
+      "Type": "text"
+    },
+    {
+      "FieldName": "state",
+      "Type": "text"
+    },
+    {
+      "FieldName": "country",
+      "Type": "text"
+    },
+    {
+      "FieldName": "Add another field",
+      "Type": "selectlist",
+      "OptionName": "Text",
+      "OptionType": "TextArea"
+    },
+    {
+      "OptionName": "URL",
+      "OptionType": "TextArea with headline url"
+    },
+    {
+      "OptionName": "Email",
+      "OptionType": "TextArea with headline email"
+    },
+    {
+      "OptionName": "Address",
+      "OptionType": "TextArea with headline address"
+    },
+    {
+      "OptionName": "Date",
+      "OptionType": "calendar default current date"
+    },
+    {
+      "OptionName": "One-Time Password",
+      "OptionType": "TextArea with headline otp"
+    },
+    {
+      "OptionName": "Password",
+      "OptionType": "TextArea with headline password"
+    },
+    {
+      "OptionName": "Phone",
+      "OptionType": "TextArea with headline phone"
+    },
+    {
+      "OptionName": "Sign in with",
+      "OptionType": "select list of accounts",
+      "__EMPTY": "google, facebook, microsoft, github"
+    },
+    {
+      "OptionName": "Section",
+      "OptionType": "Text field"
+    },
+    {
+      "OptionName": "Attach a file",
+      "OptionType": "Allows to upload a file"
+    },
+    {
+      "FieldName": "Add more",
+      "Type": "selectlist",
+      "OptionName": "Text",
+      "OptionType": "TextArea"
+    },
+    {
+      "OptionName": "URL",
+      "OptionType": "TextArea with headline url"
+    },
+    {
+      "OptionName": "Email",
+      "OptionType": "TextArea with headline email"
+    },
+    {
+      "OptionName": "Address",
+      "OptionType": "TextArea with headline address"
+    },
+    {
+      "OptionName": "Date",
+      "OptionType": "calendar default current date"
+    },
+    {
+      "OptionName": "One-Time Password",
+      "OptionType": "TextArea with headline otp"
+    },
+    {
+      "OptionName": "Password",
+      "OptionType": "TextArea with headline password"
+    },
+    {
+      "OptionName": "Phone",
+      "OptionType": "TextArea with headline phone"
+    },
+    {
+      "OptionName": "Sign in with",
+      "OptionType": "select list of accounts",
+      "__EMPTY": "google, facebook, microsoft, github"
+    },
+    {
+      "OptionName": "Section",
+      "OptionType": "Text field"
+    },
+    {
+      "OptionName": "Attach a file",
+      "OptionType": "Allows to upload a file"
+    },
+    {
+      "FieldName": "notes ",
+      "Type": "TextArea"
+    },
+    {
+      "FieldName": "location",
+      "Type": "TextArea"
+    },
+    {
+      "FieldName": "tags (add tag)",
+      "Type": "select list"
+    },
+    {
+      "FieldName": "save",
+      "Type": "button"
+    },
+    {
+      "FieldName": "Table Details"
+    },
+    {
+      "FieldName": "Column Name",
+      "Type": "DataType",
+      "OptionName": "Relationship",
+      "OptionType": "Foreign Key"
+    },
+    {
+      "FieldName": "ID",
+      "Type": "UUID",
+      "OptionName": "Primary Key",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "VAULT_ID",
+      "Type": "UUID",
+      "OptionName": "M:1",
+      "OptionType": "VAULT.ID"
+    },
+    {
+      "FieldName": "FULL_NAME",
+      "Type": "VARCHAR",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "VALID_FROM",
+      "Type": "DATE",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "EXPIRE",
+      "Type": "DATE",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "APPROVED_WILDLIFE",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "MAXIMUM_QUOTA",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "STATE",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "COUNTRY",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "COMMON_FIELDS",
+      "Type": "SELECTLIST",
+      "OptionName": "1:M",
+      "OptionType": "COMMONFIELDS"
+    },
+    {
+      "FieldName": "IS_ACTIVE",
+      "Type": "BOOLEAN"
+    }
+  ],
+  "PM_PASSPORT": [
+    {
+      "FieldName": "type",
+      "Type": "select list"
+    },
+    {
+      "FieldName": "issuing country",
+      "Type": "text"
+    },
+    {
+      "FieldName": "number",
+      "Type": "text"
+    },
+    {
+      "FieldName": "full name",
+      "Type": "text"
+    },
+    {
+      "FieldName": "gender",
+      "Type": "text"
+    },
+    {
+      "FieldName": "nationality",
+      "Type": "text"
+    },
+    {
+      "FieldName": "issuing authority",
+      "Type": "text"
+    },
+    {
+      "FieldName": "date of birth",
+      "Type": "date"
+    },
+    {
+      "FieldName": "place of birth",
+      "Type": "text"
+    },
+    {
+      "FieldName": "issued on",
+      "Type": "date"
+    },
+    {
+      "FieldName": "expiry date",
+      "Type": "date"
+    },
+    {
+      "FieldName": "Add another field",
+      "Type": "selectlist",
+      "OptionName": "Text",
+      "OptionType": "TextArea"
+    },
+    {
+      "OptionName": "URL",
+      "OptionType": "TextArea with headline url"
+    },
+    {
+      "OptionName": "Email",
+      "OptionType": "TextArea with headline email"
+    },
+    {
+      "OptionName": "Address",
+      "OptionType": "TextArea with headline address"
+    },
+    {
+      "OptionName": "Date",
+      "OptionType": "calendar default current date"
+    },
+    {
+      "OptionName": "One-Time Password",
+      "OptionType": "TextArea with headline otp"
+    },
+    {
+      "OptionName": "Password",
+      "OptionType": "TextArea with headline password"
+    },
+    {
+      "OptionName": "Phone",
+      "OptionType": "TextArea with headline phone"
+    },
+    {
+      "OptionName": "Sign in with",
+      "OptionType": "select list of accounts",
+      "__EMPTY": "google, facebook, microsoft, github"
+    },
+    {
+      "OptionName": "Section",
+      "OptionType": "Text field"
+    },
+    {
+      "OptionName": "Attach a file",
+      "OptionType": "Allows to upload a file"
+    },
+    {
+      "FieldName": "Add more",
+      "Type": "selectlist",
+      "OptionName": "Text",
+      "OptionType": "TextArea"
+    },
+    {
+      "OptionName": "URL",
+      "OptionType": "TextArea with headline url"
+    },
+    {
+      "OptionName": "Email",
+      "OptionType": "TextArea with headline email"
+    },
+    {
+      "OptionName": "Address",
+      "OptionType": "TextArea with headline address"
+    },
+    {
+      "OptionName": "Date",
+      "OptionType": "calendar default current date"
+    },
+    {
+      "OptionName": "One-Time Password",
+      "OptionType": "TextArea with headline otp"
+    },
+    {
+      "OptionName": "Password",
+      "OptionType": "TextArea with headline password"
+    },
+    {
+      "OptionName": "Phone",
+      "OptionType": "TextArea with headline phone"
+    },
+    {
+      "OptionName": "Sign in with",
+      "OptionType": "select list of accounts",
+      "__EMPTY": "google, facebook, microsoft, github"
+    },
+    {
+      "OptionName": "Section",
+      "OptionType": "Text field"
+    },
+    {
+      "OptionName": "Attach a file",
+      "OptionType": "Allows to upload a file"
+    },
+    {
+      "FieldName": "notes ",
+      "Type": "TextArea"
+    },
+    {
+      "FieldName": "location",
+      "Type": "TextArea"
+    },
+    {
+      "FieldName": "tags (add tag)",
+      "Type": "select list"
+    },
+    {
+      "FieldName": "save",
+      "Type": "button"
+    },
+    {
+      "FieldName": "Table Details"
+    },
+    {
+      "FieldName": "Column Name",
+      "Type": "DataType",
+      "OptionName": "Relationship",
+      "OptionType": "Foreign Key"
+    },
+    {
+      "FieldName": "ID",
+      "Type": "UUID",
+      "OptionName": "Primary Key",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "VAULT_ID",
+      "Type": "UUID",
+      "OptionName": "M:1",
+      "OptionType": "VAULT.ID"
+    },
+    {
+      "FieldName": "TYPE",
+      "Type": "SELECTLIST",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "ISSUING_COUNTRY",
+      "Type": "VARCHAR",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "NUMBER",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "FULLNAME",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "GENDER",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "NATIONALITY",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "ISSUING_AUTHORITY",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "DATE_OF_BIRTH",
+      "Type": "DATE",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "PLACE_OF_BIRTH",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "ISSUED_ON",
+      "Type": "DATE",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "EXPIRY_DATE",
+      "Type": "DATE",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "COMMON_FIELDS",
+      "Type": "SELECTLIST",
+      "OptionName": "1:M",
+      "OptionType": "COMMONFIELDS"
+    },
+    {
+      "FieldName": "IS_ACTIVE",
+      "Type": "BOOLEAN"
+    }
+  ],
+  "PM_REWARDS": [
+    {
+      "FieldName": "company name",
+      "Type": "text"
+    },
+    {
+      "FieldName": "member name",
+      "Type": "text"
+    },
+    {
+      "FieldName": "member ID",
+      "Type": "text"
+    },
+    {
+      "FieldName": "PIN",
+      "Type": "password"
+    },
+    {
+      "FieldName": "Add another field",
+      "Type": "selectlist",
+      "OptionName": "Text",
+      "OptionType": "TextArea"
+    },
+    {
+      "OptionName": "URL",
+      "OptionType": "TextArea with headline url"
+    },
+    {
+      "OptionName": "Email",
+      "OptionType": "TextArea with headline email"
+    },
+    {
+      "OptionName": "Address",
+      "OptionType": "TextArea with headline address"
+    },
+    {
+      "OptionName": "Date",
+      "OptionType": "calendar default current date"
+    },
+    {
+      "OptionName": "One-Time Password",
+      "OptionType": "TextArea with headline otp"
+    },
+    {
+      "OptionName": "Password",
+      "OptionType": "TextArea with headline password"
+    },
+    {
+      "OptionName": "Phone",
+      "OptionType": "TextArea with headline phone"
+    },
+    {
+      "OptionName": "Sign in with",
+      "OptionType": "select list of accounts",
+      "__EMPTY": "google, facebook, microsoft, github"
+    },
+    {
+      "OptionName": "Section",
+      "OptionType": "Text field"
+    },
+    {
+      "OptionName": "Attach a file",
+      "OptionType": "Allows to upload a file"
+    },
+    {
+      "FieldName": "more info"
+    },
+    {
+      "FieldName": "member ID",
+      "Type": "text"
+    },
+    {
+      "FieldName": "member since",
+      "Type": "date"
+    },
+    {
+      "FieldName": "customer service phone",
+      "Type": "text"
+    },
+    {
+      "FieldName": "phone for reservations",
+      "Type": "text"
+    },
+    {
+      "FieldName": "website",
+      "Type": "text"
+    },
+    {
+      "FieldName": "Add another field",
+      "Type": "selectlist",
+      "OptionName": "Text",
+      "OptionType": "TextArea"
+    },
+    {
+      "OptionName": "URL",
+      "OptionType": "TextArea with headline url"
+    },
+    {
+      "OptionName": "Email",
+      "OptionType": "TextArea with headline email"
+    },
+    {
+      "OptionName": "Address",
+      "OptionType": "TextArea with headline address"
+    },
+    {
+      "OptionName": "Date",
+      "OptionType": "calendar default current date"
+    },
+    {
+      "OptionName": "One-Time Password",
+      "OptionType": "TextArea with headline otp"
+    },
+    {
+      "OptionName": "Password",
+      "OptionType": "TextArea with headline password"
+    },
+    {
+      "OptionName": "Phone",
+      "OptionType": "TextArea with headline phone"
+    },
+    {
+      "OptionName": "Sign in with",
+      "OptionType": "select list of accounts",
+      "__EMPTY": "google, facebook, microsoft, github"
+    },
+    {
+      "OptionName": "Section",
+      "OptionType": "Text field"
+    },
+    {
+      "OptionName": "Attach a file",
+      "OptionType": "Allows to upload a file"
+    },
+    {
+      "FieldName": "Add more",
+      "Type": "selectlist",
+      "OptionName": "Text",
+      "OptionType": "TextArea"
+    },
+    {
+      "OptionName": "URL",
+      "OptionType": "TextArea with headline url"
+    },
+    {
+      "OptionName": "Email",
+      "OptionType": "TextArea with headline email"
+    },
+    {
+      "OptionName": "Address",
+      "OptionType": "TextArea with headline address"
+    },
+    {
+      "OptionName": "Date",
+      "OptionType": "calendar default current date"
+    },
+    {
+      "OptionName": "One-Time Password",
+      "OptionType": "TextArea with headline otp"
+    },
+    {
+      "OptionName": "Password",
+      "OptionType": "TextArea with headline password"
+    },
+    {
+      "OptionName": "Phone",
+      "OptionType": "TextArea with headline phone"
+    },
+    {
+      "OptionName": "Sign in with",
+      "OptionType": "select list of accounts",
+      "__EMPTY": "google, facebook, microsoft, github"
+    },
+    {
+      "OptionName": "Section",
+      "OptionType": "Text field"
+    },
+    {
+      "OptionName": "Attach a file",
+      "OptionType": "Allows to upload a file"
+    },
+    {
+      "FieldName": "notes ",
+      "Type": "TextArea"
+    },
+    {
+      "FieldName": "location",
+      "Type": "TextArea"
+    },
+    {
+      "FieldName": "tags (add tag)",
+      "Type": "select list"
+    },
+    {
+      "FieldName": "save",
+      "Type": "button"
+    },
+    {
+      "FieldName": "Table Details"
+    },
+    {
+      "FieldName": "Column Name",
+      "Type": "DataType",
+      "OptionName": "Relationship",
+      "OptionType": "Foreign Key"
+    },
+    {
+      "FieldName": "ID",
+      "Type": "UUID",
+      "OptionName": "Primary Key",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "VAULT_ID",
+      "Type": "UUID",
+      "OptionName": "M:1",
+      "OptionType": "VAULT.ID"
+    },
+    {
+      "FieldName": "company name",
+      "Type": "VARCHAR",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "member name",
+      "Type": "VARCHAR",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "member ID",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "PIN",
+      "Type": "PASSWORD",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "member ID",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "member since",
+      "Type": "DATE",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "customer service phone",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "phone for reservations",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "website",
+      "Type": "VARCHAR"
+    },
+    {
+      "FieldName": "COMMON_FIELDS",
+      "Type": "SELECTLIST",
+      "OptionName": "1:M",
+      "OptionType": "COMMONFIELDS"
+    },
+    {
+      "FieldName": "IS_ACTIVE",
+      "Type": "BOOLEAN"
+    }
+  ],
+  "PM_SSH_KEYS": [
+    {
+      "FieldName": "Add a private key",
+      "Type": "drage upload",
+      "OptionName": "generate a new key"
+    },
+    {
+      "OptionName": "Import key from file"
+    },
+    {
+      "OptionName": "Paste key from clipboard"
+    },
+    {
+      "FieldName": "Add more",
+      "Type": "selectlist",
+      "OptionName": "Text",
+      "OptionType": "TextArea"
+    },
+    {
+      "OptionName": "URL",
+      "OptionType": "TextArea with headline url"
+    },
+    {
+      "OptionName": "Email",
+      "OptionType": "TextArea with headline email"
+    },
+    {
+      "OptionName": "Address",
+      "OptionType": "TextArea with headline address"
+    },
+    {
+      "OptionName": "Date",
+      "OptionType": "calendar default current date"
+    },
+    {
+      "OptionName": "One-Time Password",
+      "OptionType": "TextArea with headline otp"
+    },
+    {
+      "OptionName": "Password",
+      "OptionType": "TextArea with headline password"
+    },
+    {
+      "OptionName": "Phone",
+      "OptionType": "TextArea with headline phone"
+    },
+    {
+      "OptionName": "Sign in with",
+      "OptionType": "select list of accounts",
+      "__EMPTY": "google, facebook, microsoft, github"
+    },
+    {
+      "OptionName": "Section",
+      "OptionType": "Text field"
+    },
+    {
+      "OptionName": "Attach a file",
+      "OptionType": "Allows to upload a file"
+    },
+    {
+      "FieldName": "notes ",
+      "Type": "TextArea"
+    },
+    {
+      "FieldName": "location",
+      "Type": "TextArea"
+    },
+    {
+      "FieldName": "tags (add tag)",
+      "Type": "select list"
+    },
+    {
+      "FieldName": "save",
+      "Type": "button"
+    },
+    {
+      "FieldName": "Table Details"
+    },
+    {
+      "FieldName": "Column Name",
+      "Type": "DataType",
+      "OptionName": "Relationship",
+      "OptionType": "Foreign Key"
+    },
+    {
+      "FieldName": "ID",
+      "Type": "UUID",
+      "OptionName": "Primary Key",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "VAULT_ID",
+      "Type": "UUID",
+      "OptionName": "M:1",
+      "OptionType": "VAULT.ID"
+    },
+    {
+      "FieldName": "ADD_PRIVATE_KEY",
+      "Type": "UPLOAD",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "COMMON_FIELDS",
+      "Type": "SELECTLIST",
+      "OptionName": "1:M",
+      "OptionType": "COMMONFIELDS"
+    },
+    {
+      "FieldName": "IS_ACTIVE",
+      "Type": "BOOLEAN"
+    }
+  ],
+  "PM_SERVER": [
+    {
+      "FieldName": "url",
+      "Type": "text"
+    },
+    {
+      "FieldName": "username",
+      "Type": "text"
+    },
+    {
+      "FieldName": "password",
+      "Type": "password"
+    },
+    {
+      "FieldName": "Add another field",
+      "Type": "selectlist",
+      "OptionName": "Text",
+      "OptionType": "TextArea"
+    },
+    {
+      "OptionName": "URL",
+      "OptionType": "TextArea with headline url"
+    },
+    {
+      "OptionName": "Email",
+      "OptionType": "TextArea with headline email"
+    },
+    {
+      "OptionName": "Address",
+      "OptionType": "TextArea with headline address"
+    },
+    {
+      "OptionName": "Date",
+      "OptionType": "calendar default current date"
+    },
+    {
+      "OptionName": "One-Time Password",
+      "OptionType": "TextArea with headline otp"
+    },
+    {
+      "OptionName": "Password",
+      "OptionType": "TextArea with headline password"
+    },
+    {
+      "OptionName": "Phone",
+      "OptionType": "TextArea with headline phone"
+    },
+    {
+      "OptionName": "Sign in with",
+      "OptionType": "select list of accounts",
+      "__EMPTY": "google, facebook, microsoft, github"
+    },
+    {
+      "OptionName": "Section",
+      "OptionType": "Text field"
+    },
+    {
+      "OptionName": "Attach a file",
+      "OptionType": "Allows to upload a file"
+    },
+    {
+      "FieldName": "Admin console"
+    },
+    {
+      "FieldName": "admin console url",
+      "Type": "text"
+    },
+    {
+      "FieldName": "admin console username",
+      "Type": "text"
+    },
+    {
+      "FieldName": "admin password",
+      "Type": "password"
+    },
+    {
+      "FieldName": "Add another field",
+      "Type": "selectlist",
+      "OptionName": "Text",
+      "OptionType": "TextArea"
+    },
+    {
+      "OptionName": "URL",
+      "OptionType": "TextArea with headline url"
+    },
+    {
+      "OptionName": "Email",
+      "OptionType": "TextArea with headline email"
+    },
+    {
+      "OptionName": "Address",
+      "OptionType": "TextArea with headline address"
+    },
+    {
+      "OptionName": "Date",
+      "OptionType": "calendar default current date"
+    },
+    {
+      "OptionName": "One-Time Password",
+      "OptionType": "TextArea with headline otp"
+    },
+    {
+      "OptionName": "Password",
+      "OptionType": "TextArea with headline password"
+    },
+    {
+      "OptionName": "Phone",
+      "OptionType": "TextArea with headline phone"
+    },
+    {
+      "OptionName": "Sign in with",
+      "OptionType": "select list of accounts",
+      "__EMPTY": "google, facebook, microsoft, github"
+    },
+    {
+      "OptionName": "Section",
+      "OptionType": "Text field"
+    },
+    {
+      "OptionName": "Attach a file",
+      "OptionType": "Allows to upload a file"
+    },
+    {
+      "FieldName": "Hosting provider"
+    },
+    {
+      "FieldName": "name ",
+      "Type": "text"
+    },
+    {
+      "FieldName": "website",
+      "Type": "text"
+    },
+    {
+      "FieldName": "support url",
+      "Type": "text"
+    },
+    {
+      "FieldName": "support phone",
+      "Type": "text"
+    },
+    {
+      "FieldName": "Add another field",
+      "Type": "selectlist",
+      "OptionName": "Text",
+      "OptionType": "TextArea"
+    },
+    {
+      "OptionName": "URL",
+      "OptionType": "TextArea with headline url"
+    },
+    {
+      "OptionName": "Email",
+      "OptionType": "TextArea with headline email"
+    },
+    {
+      "OptionName": "Address",
+      "OptionType": "TextArea with headline address"
+    },
+    {
+      "OptionName": "Date",
+      "OptionType": "calendar default current date"
+    },
+    {
+      "OptionName": "One-Time Password",
+      "OptionType": "TextArea with headline otp"
+    },
+    {
+      "OptionName": "Password",
+      "OptionType": "TextArea with headline password"
+    },
+    {
+      "OptionName": "Phone",
+      "OptionType": "TextArea with headline phone"
+    },
+    {
+      "OptionName": "Sign in with",
+      "OptionType": "select list of accounts",
+      "__EMPTY": "google, facebook, microsoft, github"
+    },
+    {
+      "OptionName": "Section",
+      "OptionType": "Text field"
+    },
+    {
+      "OptionName": "Attach a file",
+      "OptionType": "Allows to upload a file"
+    },
+    {
+      "FieldName": "Add more",
+      "Type": "selectlist",
+      "OptionName": "Text",
+      "OptionType": "TextArea"
+    },
+    {
+      "OptionName": "URL",
+      "OptionType": "TextArea with headline url"
+    },
+    {
+      "OptionName": "Email",
+      "OptionType": "TextArea with headline email"
+    },
+    {
+      "OptionName": "Address",
+      "OptionType": "TextArea with headline address"
+    },
+    {
+      "OptionName": "Date",
+      "OptionType": "calendar default current date"
+    },
+    {
+      "OptionName": "One-Time Password",
+      "OptionType": "TextArea with headline otp"
+    },
+    {
+      "OptionName": "Password",
+      "OptionType": "TextArea with headline password"
+    },
+    {
+      "OptionName": "Phone",
+      "OptionType": "TextArea with headline phone"
+    },
+    {
+      "OptionName": "Sign in with",
+      "OptionType": "select list of accounts",
+      "__EMPTY": "google, facebook, microsoft, github"
+    },
+    {
+      "OptionName": "Section",
+      "OptionType": "Text field"
+    },
+    {
+      "OptionName": "Attach a file",
+      "OptionType": "Allows to upload a file"
+    },
+    {
+      "FieldName": "notes ",
+      "Type": "TextArea"
+    },
+    {
+      "FieldName": "location",
+      "Type": "TextArea"
+    },
+    {
+      "FieldName": "tags (add tag)",
+      "Type": "select list"
+    },
+    {
+      "FieldName": "save",
+      "Type": "button"
+    },
+    {
+      "FieldName": "Table Details"
+    },
+    {
+      "FieldName": "Column Name",
+      "Type": "DataType",
+      "OptionName": "Relationship",
+      "OptionType": "Foreign Key"
+    },
+    {
+      "FieldName": "ID",
+      "Type": "UUID",
+      "OptionName": "Primary Key",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "VAULT_ID",
+      "Type": "UUID",
+      "OptionName": "M:1",
+      "OptionType": "VAULT.ID"
+    },
+    {
+      "FieldName": "URL",
+      "Type": "VARCHAR",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "USERNAME",
+      "Type": "VARCHAR",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "PASSWORD",
+      "Type": "PASSWORD",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "ADMIN_CONSOLE_URL",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "ADMIN_CONSOLE_USERNAME",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "ADMIN_PASSWORD",
+      "Type": "PASSWORD",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "NAME",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "WEBSITE",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "SUPPORT_URL",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "SUPPORT_PHONE",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "COMMON_FIELDS",
+      "Type": "SELECTLIST",
+      "OptionName": "1:M",
+      "OptionType": "COMMONFIELDS"
+    },
+    {
+      "FieldName": "IS_ACTIVE",
+      "Type": "BOOLEAN"
+    }
+  ],
+  "PM_SOCIAL_SECURITY_NUMBER": [
+    {
+      "FieldName": "name ",
+      "Type": "text"
+    },
+    {
+      "FieldName": "number",
+      "Type": "password"
+    },
+    {
+      "FieldName": "Add another field",
+      "Type": "selectlist",
+      "OptionName": "Text",
+      "OptionType": "TextArea"
+    },
+    {
+      "OptionName": "URL",
+      "OptionType": "TextArea with headline url"
+    },
+    {
+      "OptionName": "Email",
+      "OptionType": "TextArea with headline email"
+    },
+    {
+      "OptionName": "Address",
+      "OptionType": "TextArea with headline address"
+    },
+    {
+      "OptionName": "Date",
+      "OptionType": "calendar default current date"
+    },
+    {
+      "OptionName": "One-Time Password",
+      "OptionType": "TextArea with headline otp"
+    },
+    {
+      "OptionName": "Password",
+      "OptionType": "TextArea with headline password"
+    },
+    {
+      "OptionName": "Phone",
+      "OptionType": "TextArea with headline phone"
+    },
+    {
+      "OptionName": "Sign in with",
+      "OptionType": "select list of accounts",
+      "__EMPTY": "google, facebook, microsoft, github"
+    },
+    {
+      "OptionName": "Section",
+      "OptionType": "Text field"
+    },
+    {
+      "OptionName": "Attach a file",
+      "OptionType": "Allows to upload a file"
+    },
+    {
+      "FieldName": "Add more",
+      "Type": "selectlist",
+      "OptionName": "Text",
+      "OptionType": "TextArea"
+    },
+    {
+      "OptionName": "URL",
+      "OptionType": "TextArea with headline url"
+    },
+    {
+      "OptionName": "Email",
+      "OptionType": "TextArea with headline email"
+    },
+    {
+      "OptionName": "Address",
+      "OptionType": "TextArea with headline address"
+    },
+    {
+      "OptionName": "Date",
+      "OptionType": "calendar default current date"
+    },
+    {
+      "OptionName": "One-Time Password",
+      "OptionType": "TextArea with headline otp"
+    },
+    {
+      "OptionName": "Password",
+      "OptionType": "TextArea with headline password"
+    },
+    {
+      "OptionName": "Phone",
+      "OptionType": "TextArea with headline phone"
+    },
+    {
+      "OptionName": "Sign in with",
+      "OptionType": "select list of accounts",
+      "__EMPTY": "google, facebook, microsoft, github"
+    },
+    {
+      "OptionName": "Section",
+      "OptionType": "Text field"
+    },
+    {
+      "OptionName": "Attach a file",
+      "OptionType": "Allows to upload a file"
+    },
+    {
+      "FieldName": "notes ",
+      "Type": "TextArea"
+    },
+    {
+      "FieldName": "location",
+      "Type": "TextArea"
+    },
+    {
+      "FieldName": "tags (add tag)",
+      "Type": "select list"
+    },
+    {
+      "FieldName": "save",
+      "Type": "button"
+    },
+    {
+      "FieldName": "Table Details"
+    },
+    {
+      "FieldName": "Column Name",
+      "Type": "DataType",
+      "OptionName": "Relationship",
+      "OptionType": "Foreign Key"
+    },
+    {
+      "FieldName": "ID",
+      "Type": "UUID",
+      "OptionName": "Primary Key",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "VAULT_ID",
+      "Type": "UUID",
+      "OptionName": "M:1",
+      "OptionType": "VAULT.ID"
+    },
+    {
+      "FieldName": "NAME",
+      "Type": "VARCHAR",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "NUMBER",
+      "Type": "PASSWORD",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "COMMON_FIELDS",
+      "Type": "SELECTLIST",
+      "OptionName": "1:M",
+      "OptionType": "COMMONFIELDS"
+    },
+    {
+      "FieldName": "IS_ACTIVE",
+      "Type": "BOOLEAN"
+    }
+  ],
+  "PM_SOFTWARE_LICENSE": [
+    {
+      "FieldName": "version",
+      "Type": "text"
+    },
+    {
+      "FieldName": "license key",
+      "Type": "text"
+    },
+    {
+      "FieldName": "Add another field",
+      "Type": "selectlist",
+      "OptionName": "Text",
+      "OptionType": "TextArea"
+    },
+    {
+      "OptionName": "URL",
+      "OptionType": "TextArea with headline url"
+    },
+    {
+      "OptionName": "Email",
+      "OptionType": "TextArea with headline email"
+    },
+    {
+      "OptionName": "Address",
+      "OptionType": "TextArea with headline address"
+    },
+    {
+      "OptionName": "Date",
+      "OptionType": "calendar default current date"
+    },
+    {
+      "OptionName": "One-Time Password",
+      "OptionType": "TextArea with headline otp"
+    },
+    {
+      "OptionName": "Password",
+      "OptionType": "TextArea with headline password"
+    },
+    {
+      "OptionName": "Phone",
+      "OptionType": "TextArea with headline phone"
+    },
+    {
+      "OptionName": "Sign in with",
+      "OptionType": "select list of accounts",
+      "__EMPTY": "google, facebook, microsoft, github"
+    },
+    {
+      "OptionName": "Section",
+      "OptionType": "Text field"
+    },
+    {
+      "OptionName": "Attach a file",
+      "OptionType": "Allows to upload a file"
+    },
+    {
+      "FieldName": "customer"
+    },
+    {
+      "FieldName": "licensed to",
+      "Type": "text"
+    },
+    {
+      "FieldName": "registered email",
+      "Type": "text"
+    },
+    {
+      "FieldName": "company",
+      "Type": "text"
+    },
+    {
+      "FieldName": "Add another field",
+      "Type": "selectlist",
+      "OptionName": "Text",
+      "OptionType": "TextArea"
+    },
+    {
+      "OptionName": "URL",
+      "OptionType": "TextArea with headline url"
+    },
+    {
+      "OptionName": "Email",
+      "OptionType": "TextArea with headline email"
+    },
+    {
+      "OptionName": "Address",
+      "OptionType": "TextArea with headline address"
+    },
+    {
+      "OptionName": "Date",
+      "OptionType": "calendar default current date"
+    },
+    {
+      "OptionName": "One-Time Password",
+      "OptionType": "TextArea with headline otp"
+    },
+    {
+      "OptionName": "Password",
+      "OptionType": "TextArea with headline password"
+    },
+    {
+      "OptionName": "Phone",
+      "OptionType": "TextArea with headline phone"
+    },
+    {
+      "OptionName": "Sign in with",
+      "OptionType": "select list of accounts",
+      "__EMPTY": "google, facebook, microsoft, github"
+    },
+    {
+      "OptionName": "Section",
+      "OptionType": "Text field"
+    },
+    {
+      "OptionName": "Attach a file",
+      "OptionType": "Allows to upload a file"
+    },
+    {
+      "FieldName": "publisher"
+    },
+    {
+      "FieldName": "download page",
+      "Type": "text"
+    },
+    {
+      "FieldName": "publisher",
+      "Type": "text"
+    },
+    {
+      "FieldName": "website",
+      "Type": "text"
+    },
+    {
+      "FieldName": "support email",
+      "Type": "text"
+    },
+    {
+      "FieldName": "retail price",
+      "Type": "text"
+    },
+    {
+      "FieldName": "Add another field",
+      "Type": "selectlist",
+      "OptionName": "Text",
+      "OptionType": "TextArea"
+    },
+    {
+      "OptionName": "URL",
+      "OptionType": "TextArea with headline url"
+    },
+    {
+      "OptionName": "Email",
+      "OptionType": "TextArea with headline email"
+    },
+    {
+      "OptionName": "Address",
+      "OptionType": "TextArea with headline address"
+    },
+    {
+      "OptionName": "Date",
+      "OptionType": "calendar default current date"
+    },
+    {
+      "OptionName": "One-Time Password",
+      "OptionType": "TextArea with headline otp"
+    },
+    {
+      "OptionName": "Password",
+      "OptionType": "TextArea with headline password"
+    },
+    {
+      "OptionName": "Phone",
+      "OptionType": "TextArea with headline phone"
+    },
+    {
+      "OptionName": "Sign in with",
+      "OptionType": "select list of accounts",
+      "__EMPTY": "google, facebook, microsoft, github"
+    },
+    {
+      "OptionName": "Section",
+      "OptionType": "Text field"
+    },
+    {
+      "OptionName": "Attach a file",
+      "OptionType": "Allows to upload a file"
+    },
+    {
+      "FieldName": "order"
+    },
+    {
+      "FieldName": "purchase date",
+      "Type": "date"
+    },
+    {
+      "FieldName": "order number",
+      "Type": "text"
+    },
+    {
+      "FieldName": "order total",
+      "Type": "text"
+    },
+    {
+      "FieldName": "Add another field",
+      "Type": "selectlist",
+      "OptionName": "Text",
+      "OptionType": "TextArea"
+    },
+    {
+      "OptionName": "URL",
+      "OptionType": "TextArea with headline url"
+    },
+    {
+      "OptionName": "Email",
+      "OptionType": "TextArea with headline email"
+    },
+    {
+      "OptionName": "Address",
+      "OptionType": "TextArea with headline address"
+    },
+    {
+      "OptionName": "Date",
+      "OptionType": "calendar default current date"
+    },
+    {
+      "OptionName": "One-Time Password",
+      "OptionType": "TextArea with headline otp"
+    },
+    {
+      "OptionName": "Password",
+      "OptionType": "TextArea with headline password"
+    },
+    {
+      "OptionName": "Phone",
+      "OptionType": "TextArea with headline phone"
+    },
+    {
+      "OptionName": "Sign in with",
+      "OptionType": "select list of accounts",
+      "__EMPTY": "google, facebook, microsoft, github"
+    },
+    {
+      "OptionName": "Section",
+      "OptionType": "Text field"
+    },
+    {
+      "OptionName": "Attach a file",
+      "OptionType": "Allows to upload a file"
+    },
+    {
+      "FieldName": "Add more",
+      "Type": "selectlist",
+      "OptionName": "Text",
+      "OptionType": "TextArea"
+    },
+    {
+      "OptionName": "URL",
+      "OptionType": "TextArea with headline url"
+    },
+    {
+      "OptionName": "Email",
+      "OptionType": "TextArea with headline email"
+    },
+    {
+      "OptionName": "Address",
+      "OptionType": "TextArea with headline address"
+    },
+    {
+      "OptionName": "Date",
+      "OptionType": "calendar default current date"
+    },
+    {
+      "OptionName": "One-Time Password",
+      "OptionType": "TextArea with headline otp"
+    },
+    {
+      "OptionName": "Password",
+      "OptionType": "TextArea with headline password"
+    },
+    {
+      "OptionName": "Phone",
+      "OptionType": "TextArea with headline phone"
+    },
+    {
+      "OptionName": "Sign in with",
+      "OptionType": "select list of accounts",
+      "__EMPTY": "google, facebook, microsoft, github"
+    },
+    {
+      "OptionName": "Section",
+      "OptionType": "Text field"
+    },
+    {
+      "OptionName": "Attach a file",
+      "OptionType": "Allows to upload a file"
+    },
+    {
+      "FieldName": "notes ",
+      "Type": "TextArea"
+    },
+    {
+      "FieldName": "location",
+      "Type": "TextArea"
+    },
+    {
+      "FieldName": "tags (add tag)",
+      "Type": "select list"
+    },
+    {
+      "FieldName": "save",
+      "Type": "button"
+    },
+    {
+      "FieldName": "Table Details"
+    },
+    {
+      "FieldName": "Column Name",
+      "Type": "DataType",
+      "OptionName": "Relationship",
+      "OptionType": "Foreign Key"
+    },
+    {
+      "FieldName": "ID",
+      "Type": "UUID",
+      "OptionName": "Primary Key",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "VAULT_ID",
+      "Type": "UUID",
+      "OptionName": "M:1",
+      "OptionType": "VAULT.ID"
+    },
+    {
+      "FieldName": "VERSION",
+      "Type": "VARCHAR",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "LICENSE_KEY",
+      "Type": "VARCHAR",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "LICENSED_TO",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "REGISTERED_EMAIL",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "COMPANY",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "DOWNLOAD_PAGE",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "PUBLISHER",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "WEBSITE",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "SUPPORT_EMAIL",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "RETAIL_PRICE",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "PURCHASE_DATE",
+      "Type": "DATE",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "ORDER_NUMBER",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "ORDER_TOTAL",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "COMMON_FIELDS",
+      "Type": "SELECTLIST",
+      "OptionName": "1:M",
+      "OptionType": "COMMONFIELDS"
+    },
+    {
+      "FieldName": "IS_ACTIVE",
+      "Type": "BOOLEAN"
+    }
+  ],
+  "PM_WIRELESS_ROUTER": [
+    {
+      "FieldName": "base station name",
+      "Type": "text"
+    },
+    {
+      "FieldName": "base station password",
+      "Type": "Password"
+    },
+    {
+      "FieldName": "server/IP address",
+      "Type": "text"
+    },
+    {
+      "FieldName": "AirPort ID",
+      "Type": "text"
+    },
+    {
+      "FieldName": "network name",
+      "Type": "text"
+    },
+    {
+      "FieldName": "wireless security",
+      "Type": "selectlist"
+    },
+    {
+      "FieldName": "wireless network password",
+      "Type": "password"
+    },
+    {
+      "FieldName": "attached strong password",
+      "Type": "password"
+    },
+    {
+      "FieldName": "Add another field",
+      "Type": "selectlist",
+      "OptionName": "Text",
+      "OptionType": "TextArea"
+    },
+    {
+      "OptionName": "URL",
+      "OptionType": "TextArea with headline url"
+    },
+    {
+      "OptionName": "Email",
+      "OptionType": "TextArea with headline email"
+    },
+    {
+      "OptionName": "Address",
+      "OptionType": "TextArea with headline address"
+    },
+    {
+      "OptionName": "Date",
+      "OptionType": "calendar default current date"
+    },
+    {
+      "OptionName": "One-Time Password",
+      "OptionType": "TextArea with headline otp"
+    },
+    {
+      "OptionName": "Password",
+      "OptionType": "TextArea with headline password"
+    },
+    {
+      "OptionName": "Phone",
+      "OptionType": "TextArea with headline phone"
+    },
+    {
+      "OptionName": "Sign in with",
+      "OptionType": "select list of accounts",
+      "__EMPTY": "google, facebook, microsoft, github"
+    },
+    {
+      "OptionName": "Section",
+      "OptionType": "Text field"
+    },
+    {
+      "OptionName": "Attach a file",
+      "OptionType": "Allows to upload a file"
+    },
+    {
+      "FieldName": "Add more",
+      "Type": "selectlist",
+      "OptionName": "Text",
+      "OptionType": "TextArea"
+    },
+    {
+      "OptionName": "URL",
+      "OptionType": "TextArea with headline url"
+    },
+    {
+      "OptionName": "Email",
+      "OptionType": "TextArea with headline email"
+    },
+    {
+      "OptionName": "Address",
+      "OptionType": "TextArea with headline address"
+    },
+    {
+      "OptionName": "Date",
+      "OptionType": "calendar default current date"
+    },
+    {
+      "OptionName": "One-Time Password",
+      "OptionType": "TextArea with headline otp"
+    },
+    {
+      "OptionName": "Password",
+      "OptionType": "TextArea with headline password"
+    },
+    {
+      "OptionName": "Phone",
+      "OptionType": "TextArea with headline phone"
+    },
+    {
+      "OptionName": "Sign in with",
+      "OptionType": "select list of accounts",
+      "__EMPTY": "google, facebook, microsoft, github"
+    },
+    {
+      "OptionName": "Section",
+      "OptionType": "Text field"
+    },
+    {
+      "OptionName": "Attach a file",
+      "OptionType": "Allows to upload a file"
+    },
+    {
+      "FieldName": "notes ",
+      "Type": "TextArea"
+    },
+    {
+      "FieldName": "location",
+      "Type": "TextArea"
+    },
+    {
+      "FieldName": "tags (add tag)",
+      "Type": "select list"
+    },
+    {
+      "FieldName": "save",
+      "Type": "button"
+    },
+    {
+      "FieldName": "Table Details"
+    },
+    {
+      "FieldName": "Column Name",
+      "Type": "DataType",
+      "OptionName": "Relationship",
+      "OptionType": "Foreign Key"
+    },
+    {
+      "FieldName": "ID",
+      "Type": "UUID",
+      "OptionName": "Primary Key",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "VAULT_ID",
+      "Type": "UUID",
+      "OptionName": "M:1",
+      "OptionType": "VAULT.ID"
+    },
+    {
+      "FieldName": "BASE_STATION_NAME",
+      "Type": "VARCHAR",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "BASE_STATION_PASSWORD",
+      "Type": "PASSWORD",
+      "OptionType": " N"
+    },
+    {
+      "FieldName": "SERVER_ADDRESS",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "AIRPORT_ID",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "NETWORK_NAME",
+      "Type": "VARCHAR",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "WIRELESS_SECURITY",
+      "Type": "SELECTLIST",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "WIRELESS_NETWORK_PASSWORD",
+      "Type": "PASSWORD",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "ATTACHED_STRONG_PASSWORD",
+      "Type": "PASSWORD",
+      "OptionType": "N"
+    },
+    {
+      "FieldName": "COMMON_FIELDS",
+      "Type": "SELECTLIST",
+      "OptionName": "1:M",
+      "OptionType": "COMMONFIELDS"
+    },
+    {
+      "FieldName": "IS_ACTIVE",
+      "Type": "BOOLEAN"
+    }
+  ],
+  "PM_COMMON_FIELD_INFO": [
+    {
+      "Table Details": "Column Name",
+      "__EMPTY": "DataType",
+      "__EMPTY_1": "Relationship",
+      "__EMPTY_2": "Foreign Key"
+    },
+    {
+      "Table Details": "ID",
+      "__EMPTY": "UUID",
+      "__EMPTY_1": "Primary Key",
+      "__EMPTY_2": " N"
+    },
+    {
+      "Table Details": "ENTITY_ID",
+      "__EMPTY": "UUID"
+    },
+    {
+      "Table Details": "ENTITY_TYPE",
+      "__EMPTY": "VARCHAR"
+    },
+    {
+      "Table Details": "FIELD_TYPE",
+      "__EMPTY": "VARCHAR"
+    },
+    {
+      "Table Details": "FIELD_VALUE",
+      "__EMPTY": "VARCHAR"
+    },
+    {
+      "Table Details": "IS_ACTIVE",
+      "__EMPTY": "VARCHAR"
+    }
+  ]
+}
