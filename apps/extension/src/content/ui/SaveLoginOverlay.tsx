@@ -17,6 +17,8 @@ export function SaveLoginOverlay({ candidateId, action, itemId, onClose }: SaveL
   const [vaultId, setVaultId] = useState('');
   const [vaults, setVaults] = useState<any[]>([]);
 
+  const [saved, setSaved] = useState(false);
+
   useEffect(() => {
     // 1. Fetch Candidate Summary
     sendToBackground({ type: 'GET_SAVE_CANDIDATE_SUMMARY', candidateId }).then((res: ExtensionResponse<any>) => {
@@ -41,7 +43,16 @@ export function SaveLoginOverlay({ candidateId, action, itemId, onClose }: SaveL
     const request = action === 'UPDATE' && itemId
       ? { type: 'UPDATE_LOGIN_CANDIDATE' as const, candidateId, itemId, vaultId: vaultId || 'default' }
       : { type: 'SAVE_LOGIN_CANDIDATE' as const, candidateId, vaultId: vaultId || 'default', title, username };
-    void sendToBackground<any>(request).then(() => onClose()).catch(() => onClose());
+    void sendToBackground<any>(request)
+      .then((res) => {
+        if (res.success) {
+          setSaved(true);
+          setTimeout(() => onClose(), 5000); // Display for 5 seconds
+        } else {
+          onClose();
+        }
+      })
+      .catch(() => onClose());
   };
 
   const handleDismiss = () => {
@@ -49,6 +60,42 @@ export function SaveLoginOverlay({ candidateId, action, itemId, onClose }: SaveL
   };
 
   if (loading || !data) return null;
+
+  if (saved) {
+    return (
+      <div style={{
+        position: 'fixed',
+        top: '16px',
+        right: '16px',
+        width: '320px',
+        background: '#ffffff',
+        border: '1px solid #e5e7eb',
+        borderRadius: '12px',
+        boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+        fontFamily: 'system-ui, -apple-system, sans-serif',
+        fontSize: '14px',
+        color: '#374151',
+        zIndex: 2147483647,
+        overflow: 'hidden',
+        pointerEvents: 'auto',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        padding: '24px 16px'
+      }}>
+        <div style={{ color: '#10b981', marginBottom: '8px' }}>
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+          </svg>
+        </div>
+        <div style={{ fontWeight: 600, fontSize: '16px' }}>Saved Successfully</div>
+        <div style={{ color: '#6b7280', fontSize: '13px', marginTop: '4px', textAlign: 'center' }}>
+          Your password for {title} has been securely saved to VaultGuard.
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div style={{
