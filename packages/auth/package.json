@@ -1,0 +1,21 @@
+{
+  "name": "@vaultguard/auth",
+  "version": "0.0.0",
+  "private": true,
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "scripts": {
+    "build": "tsc -b"
+  },
+  "dependencies": {
+    "@vaultguard/models": "*",
+    "@vaultguard/crypto": "*",
+    "@vaultguard/db-local": "*",
+    "@vaultguard/storage": "*",
+    "@supabase/supabase-js": "^2.45.0",
+    "@vaultguard/sync-supabase": "*"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.3"
+  }
+}

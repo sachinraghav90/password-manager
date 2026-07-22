@@ -1,0 +1,11 @@
+{
+  "name": "@vaultguard/repositories",
+  "version": "0.0.0",
+  "main": "src/index.ts",
+  "dependencies": {
+    "@vaultguard/models": "*"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.3"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "@vaultguard/db-local",
+  "version": "0.0.0",
+  "private": true,
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "scripts": {
+    "build": "tsc -b"
+  },
+  "dependencies": {
+    "@vaultguard/models": "*",
+    "@vaultguard/crypto": "*",
+    "dexie": "^4.4.4",
+    "@vaultguard/repositories": "*"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.3"
+  }
+}

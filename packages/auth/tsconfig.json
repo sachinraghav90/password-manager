@@ -1,0 +1,15 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist"
+  },
+  "include": ["src/**/*"],
+  "references": [
+    { "path": "../models" },
+    { "path": "../crypto" },
+    { "path": "../db" },
+    { "path": "../storage" },
+    { "path": "../sync-supabase" }
+  ]
+}

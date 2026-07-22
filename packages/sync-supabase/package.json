@@ -1,0 +1,13 @@
+{
+  "name": "@vaultguard/sync-supabase",
+  "version": "0.0.0",
+  "main": "src/index.ts",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.0",
+    "@vaultguard/models": "*",
+    "@vaultguard/repositories": "*"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.3"
+  }
+}
