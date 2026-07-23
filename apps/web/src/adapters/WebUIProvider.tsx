@@ -123,7 +123,7 @@ export function WebUIProvider({ children }: { children: ReactNode }) {
     }
   }), [authStore, authState]);
 
-  const loadItems = useCallback(async (_userId: string, orgId: string | null) => {
+  const loadItems = useCallback(async (userId: string, orgId: string | null) => {
     await useItemListStore.getState().loadEntries(userId, orgId || undefined);
 
     // One-time migration: push existing local items to Supabase so the extension can sync them
@@ -137,7 +137,7 @@ export function WebUIProvider({ children }: { children: ReactNode }) {
     }
   }, []);
 
-  const getRecentItems = useCallback(async (userId: string, limit: number) => {
+  const getRecentItems = useCallback(async (_userId: string, limit: number) => {
     return useItemListStore.getState().entries.filter(i => i.lastAccessedAt).sort((a,b) => (b.lastAccessedAt || 0) - (a.lastAccessedAt || 0)).slice(0, limit);
   }, []);
 

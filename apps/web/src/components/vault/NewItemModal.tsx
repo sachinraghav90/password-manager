@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Search, X } from 'lucide-react';
 import { Input } from '../ui/Input';
-import { ITEM_REGISTRY } from '../../lib/itemRegistry';
+import { ITEM_REGISTRY } from '@vaultguard/ui';
 import { ItemType } from '@vaultguard/models';
 
 interface NewItemModalProps {

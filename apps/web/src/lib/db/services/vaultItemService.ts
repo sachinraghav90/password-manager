@@ -52,7 +52,7 @@ export const vaultItemService = {
   async pushAllToSupabase(_userId: string, vaultId: string): Promise<void> {
     try {
       // Only sync vaults that exist remotely. RLS remains the authority for access.
-      const { data: remoteVault } = await authService.supabase
+      const { data: remoteVault } = await (authService as any).supabase
         .from('vaults')
         .select('id')
         .eq('id', vaultId)
@@ -106,7 +106,7 @@ export const vaultItemService = {
         } catch (e) {}
 
         // Push encrypted item to Supabase
-        await authService.supabase.from('encrypted_items').upsert({
+        await (authService as any).supabase.from('encrypted_items').upsert({
           id: login.id,
           vault_id: login.vaultId,
           item_type: 'login',
@@ -121,7 +121,7 @@ export const vaultItemService = {
 
         // Push index entry
         if (indexRecord) {
-          await authService.supabase.from('item_indexes').upsert({
+          await (authService as any).supabase.from('item_indexes').upsert({
             id: indexRecord.indexId,
             item_id: indexRecord.itemId,
             vault_id: indexRecord.vaultId,
@@ -420,7 +420,7 @@ export const vaultItemService = {
       
       if (record && indexRecord) {
         // Push encrypted item
-        await authService.supabase.from('encrypted_items').upsert({
+        await (authService as any).supabase.from('encrypted_items').upsert({
           id: record.id,
           vault_id: record.vaultId,
           item_type: itemType,
@@ -450,7 +450,7 @@ export const vaultItemService = {
            }
         } catch (e) {}
 
-        await authService.supabase.from('item_indexes').upsert({
+        await (authService as any).supabase.from('item_indexes').upsert({
           id: indexRecord.indexId,
           item_id: indexRecord.itemId,
           vault_id: indexRecord.vaultId,
@@ -485,7 +485,7 @@ export const vaultItemService = {
       const indexRecord = await db.pm_item_index.where('itemId').equals(item.id).first();
       
       if (record && indexRecord) {
-        await authService.supabase.from('encrypted_items').upsert({
+        await (authService as any).supabase.from('encrypted_items').upsert({
           id: record.id,
           vault_id: record.vaultId,
           item_type: itemType,
@@ -511,7 +511,7 @@ export const vaultItemService = {
            }
         } catch (e) {}
 
-        await authService.supabase.from('item_indexes').upsert({
+        await (authService as any).supabase.from('item_indexes').upsert({
           id: indexRecord.indexId,
           item_id: indexRecord.itemId,
           vault_id: indexRecord.vaultId,

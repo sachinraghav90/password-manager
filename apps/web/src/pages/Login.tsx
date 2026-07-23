@@ -14,7 +14,7 @@ export function Login() {
   const { login } = useAuthStore();
   const navigate = useNavigate();
 
-  console.log('Web App VITE_SUPABASE_URL:', import.meta.env.VITE_SUPABASE_URL);
+  console.log('Web App VITE_SUPABASE_URL:', (import.meta as any).env.VITE_SUPABASE_URL);
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();

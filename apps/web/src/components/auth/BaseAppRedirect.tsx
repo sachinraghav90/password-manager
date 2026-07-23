@@ -10,7 +10,7 @@ export function BaseAppRedirect() {
   useEffect(() => {
     async function determineRoute() {
       if (!user) return;
-      if (user.accountType === 'super_admin') {
+      if ((user.accountType as string) === 'super_admin') {
         setRedirectPath('/app/super-admin');
         return;
       }

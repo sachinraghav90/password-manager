@@ -60,10 +60,10 @@ export const useAuthStore = create<AuthState>((set) => ({
         const mkBase64 = params.get('master_key');
         
         // Let supabase process the token, then grab the session
-        const { data } = await authService.supabase.auth.getSession();
+        const { data } = await (authService as any).supabase.auth.getSession();
         if (data.session && mkBase64) {
           userId = data.session.user.id;
-          await storage.set('auth_user_id', userId);
+          if (userId) await storage.set('auth_user_id', userId);
           
           const binary = atob(mkBase64);
           const bytes = new Uint8Array(binary.length);

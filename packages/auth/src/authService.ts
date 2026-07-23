@@ -173,7 +173,7 @@ export const authService = {
           const localVaults = await db.vaults.where('createdBy').equals(localUser.id).toArray();
           const localItems = await db.items.toArray(); // Assume all for now
 
-          const _syncEngine = new SupabaseSyncEngine(url, key);
+          new SupabaseSyncEngine(url, key);
 
           // We'll construct a massive push manually or use pushChanges when implemented.
           // For now, insert directly to supabase since we have the client here.
