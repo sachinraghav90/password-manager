@@ -39,7 +39,7 @@ export function InlineDropdown({ onClose, autoFillFirst = false }: InlineDropdow
       const identity = await sendToBackground<ContentContextData>({ type: 'GET_CONTENT_CONTEXT' });
       if (!active) return;
       if (!identity.success) {
-        setError(identity.error);
+        setError((identity as any).error);
         setLoading(false);
         return;
       }
@@ -60,7 +60,7 @@ export function InlineDropdown({ onClose, autoFillFirst = false }: InlineDropdow
       if (!active) return;
       setLoading(false);
       if (!response.success) {
-        setError(response.error);
+        setError((response as any).error);
         return;
       }
       setStatus(response.data.status);
@@ -92,7 +92,7 @@ export function InlineDropdown({ onClose, autoFillFirst = false }: InlineDropdow
       documentId: context.documentId
     });
     if (!response.success) {
-      setError(response.error);
+      setError((response as any).error);
       return;
     }
     if (response.data.status === 'FILLED_USERNAME_AND_PASSWORD' ||

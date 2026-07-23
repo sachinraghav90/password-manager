@@ -1,4 +1,4 @@
-﻿import {
+import {
   ExtensionResponse,
   GeneratedPasswordData,
   MatchingLoginsData,
@@ -111,12 +111,14 @@ export async function handleOpenLoginWebsite(
     const item = items.find(i => i.itemId === itemId);
     if (!item || !item.website) throw new Error('Website not found');
 
-    let urlStr = item.website;
-    if (!urlStr.startsWith('http://') && !urlStr.startsWith('https://')) {
-      urlStr = 'https://' + urlStr;
+    let url: URL;
+    try {
+      const urlStr = item.website;
+      // Only explicit web URLs are accepted. Never reinterpret javascript:, data:, or other schemes.
+      url = new URL(urlStr.includes('://') ? urlStr : 'https://' + urlStr);
+    } catch {
+      throw new Error('Invalid URL protocol');
     }
-
-    const url = new URL(urlStr);
     if (url.protocol !== 'http:' && url.protocol !== 'https:') {
       throw new Error('Invalid URL protocol');
     }
@@ -191,7 +193,7 @@ export async function handleCreateItemInWeb(
     const { data } = await supabase.auth.getSession();
     const session = data.session;
     
-    let url = `http://localhost:5173/app/create-item?type=${encodeURIComponent(itemType)}`;
+    let url = ((globalThis as any).browser?.runtime?.getURL?.('vault.html') ?? (globalThis as any).chrome?.runtime?.getURL?.('vault.html') ?? 'about:blank') + `?type=${encodeURIComponent(itemType)}`;
     if (session) {
       // Pass the session token in the hash so the web app can instantly log in
       url += `#access_token=${session.access_token}&refresh_token=${session.refresh_token}`;

@@ -35,7 +35,7 @@ function Unlock() {
       if (res.success) {
         window.close(); // Close the window on success
       } else {
-        setError(res.error?.message || 'Access denied');
+        setError((res as any).error?.message || 'Access denied');
         setLoading(false);
       }
     } catch (e: any) {

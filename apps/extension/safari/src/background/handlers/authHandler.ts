@@ -1,4 +1,4 @@
-﻿import { AuthStateData, ExtensionResponse, ExtensionAuthState } from '@vaultguard/browser-api';
+import { AuthStateData, ExtensionResponse, ExtensionAuthState } from '@vaultguard/browser-api';
 import { User, Vault } from '@vaultguard/models';
 import { cryptoUtils, sessionCryptoStore } from '@vaultguard/crypto';
 import { db } from '@vaultguard/db-local';
@@ -79,7 +79,7 @@ export async function handleLock(
   chrome.alarms?.clear('vaultguard-auto-lock');
 
   // Broadcast lock state to all extension pages (like the popup)
-  chrome.runtime.sendMessage({ type: 'AUTH_STATE_CHANGED', locked: true }).catch(() => {});
+  Promise.resolve(chrome.runtime?.sendMessage?.({ type: 'AUTH_STATE_CHANGED', locked: true })).catch(() => {});
 
   return { success: true, requestId, data: { locked: true } };
 }
@@ -125,7 +125,7 @@ export async function handleUnlock(
         };
       }
     } else {
-      // No vault exists to test password against, so we just set master key
+      // Without a synced vault, retain the derived master key; the next sync can populate vault keys.
       sessionCryptoStore.setMasterKey(masterKey);
     }
 
@@ -141,7 +141,7 @@ export async function handleUnlock(
     }
 
     // Broadcast unlock state to all extension pages
-    chrome.runtime.sendMessage({ type: 'AUTH_STATE_CHANGED', locked: false }).catch(() => {});
+    Promise.resolve(chrome.runtime?.sendMessage?.({ type: 'AUTH_STATE_CHANGED', locked: false })).catch(() => {});
 
     return { success: true, requestId, data: { locked: false } };
   } catch (err) {
@@ -151,7 +151,7 @@ export async function handleUnlock(
       error: { code: 'PENDING_CRYPTO', message: 'Key derivation failed' },
     };
   } finally {
-    // Immediately overwrite masterPassword reference â€” do not cache or log it
+    // Immediately overwrite masterPassword reference — do not cache or log it
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     masterPassword = '';
   }
@@ -215,7 +215,7 @@ export async function handleLogin(
     await syncService.sync(authData.user.id);
 
     // Broadcast that auth state changed (now locked instead of signed_out)
-    chrome.runtime.sendMessage({ type: 'AUTH_STATE_CHANGED', locked: true }).catch(() => {});
+    Promise.resolve(chrome.runtime?.sendMessage?.({ type: 'AUTH_STATE_CHANGED', locked: true })).catch(() => {});
 
     return { success: true, requestId, data: { locked: true } };
   } catch (err: any) {

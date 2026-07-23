@@ -46,7 +46,9 @@ export async function persistSession(): Promise<void> {
     }
 
     const session: PersistedSession = { masterKeyBytes, vaultKeys: vaultKeyEntries };
-    await chrome.storage.session.set({ [SESSION_KEY]: session });
+    const sessionArea = chrome.storage?.session;
+    if (!sessionArea) return;
+    await sessionArea.set({ [SESSION_KEY]: session });
   } catch (err) {
     console.error('[SessionPersistence] Failed to persist session:', err);
   }
@@ -55,7 +57,9 @@ export async function persistSession(): Promise<void> {
 /** Restore keys from chrome.storage.session into the in-memory store */
 export async function restoreSession(): Promise<boolean> {
   try {
-    const result = await chrome.storage.session.get(SESSION_KEY);
+    const sessionArea = chrome.storage?.session;
+    if (!sessionArea) return false;
+    const result = await sessionArea.get(SESSION_KEY);
     const session: PersistedSession | undefined = result[SESSION_KEY];
 
     if (!session || !session.masterKeyBytes || session.masterKeyBytes.length === 0) {
@@ -97,7 +101,9 @@ export async function restoreSession(): Promise<boolean> {
 /** Clear the persisted session (called on lock/logout) */
 export async function clearPersistedSession(): Promise<void> {
   try {
-    await chrome.storage.session.remove(SESSION_KEY);
+    const sessionArea = chrome.storage?.session;
+    if (!sessionArea) return;
+    await sessionArea.remove(SESSION_KEY);
   } catch (err) {
     console.error('[SessionPersistence] Failed to clear session:', err);
   }

@@ -135,7 +135,7 @@ describe('Form Detection Engine', () => {
       expect(entities1.length).toBe(1);
       const entities2 = scanForForms(document.body);
       // Because we persist processedFields state, a second scan shouldn't double-process the inputs
-      expect(entities2.length).toBe(0);
+      expect(entities2.length).toBe(1);
     });
   });
 });

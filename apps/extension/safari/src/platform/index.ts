@@ -1,9 +1,6 @@
-import { ChromiumAdapter } from './ChromiumAdapter';
-import { WebExtensionAdapter } from './WebExtensionAdapter';
+import { SafariPlatformAdapter } from './SafariPlatformAdapter';
 import { ExtensionPlatform } from './ExtensionPlatform';
 
-// Basic platform detection
-const isSafari = typeof navigator !== 'undefined' && /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-
-export const platform: ExtensionPlatform = isSafari ? WebExtensionAdapter : ChromiumAdapter;
+export const platform: ExtensionPlatform = SafariPlatformAdapter;
+export { SafariPlatformAdapter } from './SafariPlatformAdapter';
 export * from './ExtensionPlatform';

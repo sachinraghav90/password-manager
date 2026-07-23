@@ -1,44 +1,45 @@
 {
-    "name":  "@vaultguard/extension",
-    "private":  true,
-    "version":  "0.0.0",
-    "type":  "module",
-    "scripts":  {
-                    "dev":  "vite",
-                    "build:chrome":  "tsc -b \u0026\u0026 vite build --mode chrome",
-                    "build:edge":  "tsc -p edge/tsconfig.json --noEmit \u0026\u0026 vite build --config edge/vite.config.ts",
-                    "build:safari":  "tsc -p safari/tsconfig.json --noEmit \u0026\u0026 vite build --config safari/vite.config.ts",
-                    "check":  "tsc --noEmit",
-                    "test":  "vitest run",
-                    "typecheck:edge":  "tsc -p edge/tsconfig.json --noEmit",
-                    "test:edge":  "vitest run --dir edge/src",
-                    "typecheck:safari":  "tsc -p safari/tsconfig.json --noEmit",
-                    "test:chrome":  "vitest run",
-                    "typecheck:chrome":  "tsc -p tsconfig.json --noEmit",
-                    "test:safari":  "vitest run --dir safari/src"
-                },
-    "dependencies":  {
-                         "@vaultguard/auth":  "*",
-                         "@vaultguard/browser-api":  "*",
-                         "@vaultguard/crypto":  "*",
-                         "@vaultguard/db-local":  "*",
-                         "@vaultguard/models":  "*",
-                         "@vaultguard/permissions":  "*",
-                         "@vaultguard/storage":  "*",
-                         "@vaultguard/utils":  "*",
-                         "react":  "^18.3.1",
-                         "react-dom":  "^18.3.1",
-                         "@vaultguard/sync-supabase":  "*",
-                         "@supabase/supabase-js":  "^2.45.0"
-                     },
-    "devDependencies":  {
-                            "@types/chrome":  "^0.0.268",
-                            "@types/react":  "^18.3.3",
-                            "@types/react-dom":  "^18.3.0",
-                            "@vitejs/plugin-react":  "^4.3.1",
-                            "fake-indexeddb":  "^6.2.5",
-                            "typescript":  "^5.5.3",
-                            "vite":  "^5.4.1",
-                            "vitest":  "^1.6.1"
-                        }
+    "name": "@vaultguard/extension",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build:chrome": "tsc -b && vite build --mode chrome",
+        "build:edge": "tsc -p edge/tsconfig.json --noEmit && vite build --config edge/vite.config.ts",
+        "build:safari": "tsc -p safari/tsconfig.json --noEmit && vite build --config safari/vite.config.ts",
+        "check": "tsc --noEmit",
+        "test": "vitest run",
+        "typecheck:edge": "tsc -p edge/tsconfig.json --noEmit",
+        "test:edge": "vitest run --dir edge/src",
+        "typecheck:safari": "tsc -p safari/tsconfig.json --noEmit",
+        "test:chrome": "vitest run",
+        "typecheck:chrome": "tsc -p tsconfig.json --noEmit",
+        "test:safari": "vitest run --config safari/vitest.config.ts"
+    },
+    "dependencies": {
+        "@supabase/supabase-js": "^2.45.0",
+        "@vaultguard/auth": "*",
+        "@vaultguard/browser-api": "*",
+        "@vaultguard/crypto": "*",
+        "@vaultguard/db-local": "*",
+        "@vaultguard/models": "*",
+        "@vaultguard/permissions": "*",
+        "@vaultguard/storage": "*",
+        "@vaultguard/sync-supabase": "*",
+        "@vaultguard/utils": "*",
+        "jsdom": "^24.1.0",
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1"
+    },
+    "devDependencies": {
+        "@types/chrome": "^0.0.268",
+        "@types/react": "^18.3.3",
+        "@types/react-dom": "^18.3.0",
+        "@vitejs/plugin-react": "^4.3.1",
+        "fake-indexeddb": "^6.2.5",
+        "typescript": "^5.5.3",
+        "vite": "^5.4.1",
+        "vitest": "^1.6.1"
+    }
 }

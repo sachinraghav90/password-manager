@@ -103,8 +103,8 @@ describe('Authentication & Session Locking', () => {
     const res = await handleUnlock('wrongpassword', 'req-1');
     expect(res.success).toBe(false);
     if (!res.success) {
-      expect(res.error.code).toBe('ACCESS_DENIED');
-      expect(res.error.message).toBe('Incorrect master password');
+      expect((res as any).error.code).toBe('ACCESS_DENIED');
+      expect((res as any).error.message).toBe('Incorrect master password');
     }
 
     // State remains locked

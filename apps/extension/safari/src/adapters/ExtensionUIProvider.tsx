@@ -58,7 +58,7 @@ export function ExtensionUIProvider({ children }: { children: ReactNode }) {
     isSuperAdmin: authState.isSuperAdmin,
     login: async (email: string, accountPassword: string) => {
       const res = await sendToBackground({ type: 'LOGIN', email, masterPassword: accountPassword } as any);
-      if (!res.success) throw new Error(res.error?.message || 'Login failed');
+      if (!res.success) throw new Error((res as any).error?.message || 'Login failed');
     },
     logout: async () => {
       const res = await sendToBackground({ type: 'LOGOUT' } as any);
@@ -68,7 +68,7 @@ export function ExtensionUIProvider({ children }: { children: ReactNode }) {
     },
     unlock: async (masterPassword: string) => {
       const res = await sendToBackground({ type: 'UNLOCK', masterPassword } as any);
-      if (!res.success) throw new Error(res.error?.message || 'Unlock failed');
+      if (!res.success) throw new Error((res as any).error?.message || 'Unlock failed');
     },
     lock: async () => {
       await sendToBackground({ type: 'LOCK' });

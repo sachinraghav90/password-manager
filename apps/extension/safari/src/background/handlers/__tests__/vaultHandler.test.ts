@@ -25,7 +25,7 @@ describe('vaultHandler', () => {
       vi.mocked(getAuthState).mockResolvedValue({ locked: true, state: 'authenticated_locked', accountId: null, email: null });
       const res = await handleGetPopupLogins('', undefined, undefined, 'req1');
       expect(res.success).toBe(false);
-      if (!res.success) expect(res.error.code).toBe('VAULT_LOCKED');
+      if (!res.success) expect((res as any).error.code).toBe('VAULT_LOCKED');
     });
 
     it('returns filtered results without passwords', async () => {
@@ -53,7 +53,7 @@ describe('vaultHandler', () => {
 
       const res = await handleOpenLoginWebsite('1', 'v1', true, 'req1');
       expect(res.success).toBe(false);
-      if (!res.success) expect(res.error.message).toMatch(/Invalid URL protocol/);
+      if (!res.success) expect((res as any).error.message).toMatch(/Invalid URL protocol/);
     });
 
     it('opens valid https: URLs', async () => {

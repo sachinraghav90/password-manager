@@ -34,7 +34,7 @@ export async function handleGetInlineSuggestions(
   }
 
   const authState = await handleGetAuthState(requestId);
-  if (!authState.success) return authState;
+  if (!authState.success) return authState as any;
   if (authState.data?.state !== 'authenticated_unlocked') {
     inlineLog(requestId, 'auth', page.url, { status: 'VAULT_LOCKED', matchedCount: 0 });
     return { success: true, requestId, data: { status: 'VAULT_LOCKED', items: [] } };
@@ -48,7 +48,7 @@ export async function handleGetInlineSuggestions(
     isTopFrame: page.frameId === 0
   };
   const matchesRes = await handleGetMatchingLogins(legacyPage, requestId);
-  if (!matchesRes.success) return matchesRes;
+  if (!matchesRes.success) return matchesRes as any;
 
   const items = (matchesRes.data || []).map((match: any) => ({
     itemId: match.itemId,
